@@ -1,12 +1,25 @@
 <script setup lang="ts">
-import { Banana } from 'lucide-vue-next';
+
+useHead({
+  title: 'Hosna Q',
+  meta: [
+    { name: 'description', content: 'My amazing site.' },
+  ],
+   htmlAttrs: {
+        lang: 'fa',
+        dir:'rtl',
+      },
+  bodyAttrs: {
+    class: 'test',
+  },
+  script: [{ innerHTML: 'console.log(\'Hello world\')' }],
+})
+
 </script>
 
 <template>
-  <div>
+  <NuxtLayout>
     <NuxtRouteAnnouncer />
-       <Button> <Banana /> Click me</Button>
-       <hr class="my-10">
-       <ModeToggle/>
-  </div>
+       <NuxtPage />
+  </NuxtLayout>
 </template>
