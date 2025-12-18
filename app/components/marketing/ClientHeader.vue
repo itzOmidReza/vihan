@@ -47,7 +47,7 @@ const components: { title: string; href: string }[] = [
 </script>
 
 <template>
-  <header class="flex items-center justify-between p-3 border-b">
+  <header class="flex items-center justify-between p-3 border-b z-10 ">
     <!-- mobile header -->
     <div class="lg:hidden flex items-center justify-start gap-2">
       <Sheet>

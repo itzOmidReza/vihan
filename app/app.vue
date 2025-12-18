@@ -10,7 +10,7 @@ useHead({
         dir:'rtl',
       },
   bodyAttrs: {
-    class: 'test',
+    class: 'overflow-x-hidden',
   },
   script: [{ innerHTML: 'console.log(\'Hello world\')' }],
 })
