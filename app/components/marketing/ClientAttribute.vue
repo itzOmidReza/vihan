@@ -46,6 +46,7 @@ const swiper = useSwiper(containerRef, {
 </script>
 
 <template>
+  <!-- title -->
   <section class="mt-20" dir="rtl">
     <div class="mb-8">
       <div class="flex items-center justify-start gap-3 mb-2">
@@ -54,7 +55,7 @@ const swiper = useSwiper(containerRef, {
       </div>
       <h2 class="text-2xl font-bold">کامل‌ترین مجموعه هوشمندساز</h2>
     </div>
-
+<!-- slide -->
     <ClientOnly>
       <swiper-container ref="containerRef" :init="false" class="pb-5">
         <swiper-slide v-for="(slide, idx) in slides" :key="idx">

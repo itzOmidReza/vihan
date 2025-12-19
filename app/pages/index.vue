@@ -6,6 +6,8 @@
    <MarketingClientBanner/>
    <!-- Attribute -->
   <MarketingClientAttribute/>
+  <!-- Service -->
+   <MarketingClientService/>
 
   <SharedCircle class="absolute top-0 -right-10 -z-10"/>
  </section>
