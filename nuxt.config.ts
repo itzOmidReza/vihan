@@ -12,7 +12,7 @@ export default defineNuxtConfig({
     ],
   },
 
-  modules: ['shadcn-nuxt', '@nuxtjs/color-mode'],
+  modules: ['shadcn-nuxt', '@nuxtjs/color-mode', 'nuxt-swiper'],
   shadcn: {
     /**
      * Prefix for all the imported component.

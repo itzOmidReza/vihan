@@ -47,8 +47,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
     <!-- Hero Image -->
     <div class="flex-1 relative flex items-center justify-center lg:items-end flex-row-reverse gap-5 mt-16 w-full">
         <img src="\images\banner\hero.png" alt="">
-        <img src="\images\banner\hero-tiny.png" alt="" class="absolute -top-10 right-0 lg:hidden">
-        <div class="bg-primary rounded-[50px] h-80 lg:flex flex-col items-center justify-between pb-7 hidden"><img src="\images\banner\hero-tiny.png" alt="" class="h-64"><p class="text-sm font-medium">وقتشه کسب کارت رو جار بزنی!</p></div>
+        <img src="\images\banner\hero-tiny.png" alt="" class="absolute -top-10 right-0 lg:hidden w-40">
+        <div class="bg-primary rounded-[18px] h-80 lg:flex flex-col items-center justify-between pb-5 hidden"><img src="\images\banner\hero-tiny.png" alt="" class="h-64"><p class="text-sm font-medium">وقتشه کسب کارت رو جار بزنی!</p></div>
     </div>
   </section>
 </template>
