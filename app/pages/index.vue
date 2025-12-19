@@ -8,7 +8,8 @@
   <MarketingClientAttribute/>
   <!-- Service -->
    <MarketingClientService/>
-
+<!-- Comments -->
+ <MarketingClientComment/>
   <SharedCircle class="absolute top-0 -right-10 -z-10"/>
  </section>
 </template>

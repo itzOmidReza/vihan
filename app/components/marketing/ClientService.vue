@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ChartLine, MoveLeft } from "lucide-vue-next";
+import { ChartLine } from "lucide-vue-next";
 
 const slides = [
   {
