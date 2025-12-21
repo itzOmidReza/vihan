@@ -167,14 +167,14 @@ onMounted(() => {
       </swiper-container>
     </ClientOnly>
 
-    <div class="flex gap-4 justify-center">
+    <!-- <div class="flex gap-4 justify-center">
       <Button variant="outline" size="icon" @click="swiper.prev()">
         <ChevronRight class="h-4 w-4" />
       </Button>
       <Button variant="outline" size="icon" @click="swiper.next()">
         <ChevronLeft class="h-4 w-4" />
       </Button>
-    </div>
+    </div> -->
   </section>
 </template>
 <style scoped>
