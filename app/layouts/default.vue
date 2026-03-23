@@ -1,7 +1,11 @@
+<script setup lang="ts">
+import { SpeedInsights } from "@vercel/speed-insights/nuxt";
+</script>
 <template>
   <div>
-    <marketing-client-header/>
+    <marketing-client-header />
     <slot />
-    <marketing-client-footer/>
+    <SpeedInsights />
+    <marketing-client-footer />
   </div>
 </template>

@@ -1,34 +1,46 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import tailwindcss from '@tailwindcss/vite'
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineNuxtConfig({
-  compatibilityDate: '2025-07-15',
+  compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
-  css: ['~/assets/css/tailwind.css'],
+  css: ["~/assets/css/tailwind.css"],
 
-  vite: {
-    plugins: [
-      tailwindcss(),
-    ],
+  // ۱. تنظیم آدرس سایت (برای Sitemap و SEO ضروری است)
+  site: {
+    url: "https://vihanco.ir/",
+    name: "ویهان | راهکارهای هوشمند نرم‌افزاری",
   },
 
-  modules: ['shadcn-nuxt', '@nuxtjs/color-mode', 'nuxt-swiper'],
+  vite: {
+    plugins: [tailwindcss()],
+  },
+
+  // ۲. اضافه کردن ماژول sitemap به لیست ماژول‌ها
+  modules: [
+    "shadcn-nuxt",
+    "@nuxtjs/color-mode",
+    "nuxt-swiper",
+    "@nuxtjs/sitemap",
+  ],
+
+  // ۳. تنظیمات نقشه سایت
+  sitemap: {
+    cacheMaxAgeSeconds: 3600, // یک ساعت کش
+    autoLastmod: true, // درج خودکار تاریخ آخرین تغییرات
+  },
+
   shadcn: {
-    /**
-     * Prefix for all the imported component.
-     * @default "Ui"
-     */
-    prefix: '',
-    /**
-     * Directory that the component lives in.
-     * Will respect the Nuxt aliases.
-     * @link https://nuxt.com/docs/api/nuxt-config#alias
-     * @default "@/components/ui"
-     */
-    componentDir: '@/components/ui'
+    prefix: "",
+    componentDir: "@/components/ui",
   },
 
   colorMode: {
-    classSuffix: ''
-  }
-})
+    classSuffix: "",
+  },
+
+  // ۴. بهینه‌سازی رندر صفحات برای SEO بهتر
+  routeRules: {
+    "/": { prerender: true }, // رندر پیش‌فرض صفحه اصلی برای سرعت بیشتر
+  },
+});

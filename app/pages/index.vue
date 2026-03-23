@@ -1,19 +1,16 @@
 <template>
- <section class="p-3 max-w-7xl m-auto ">
-    <!-- Hero -->
-  <MarketingClientHero/>
-  <!-- Banner -->
-   <MarketingClientBanner/>
-   <!-- Attribute -->
-  <MarketingClientAttribute/>
-  <!-- Service -->
-   <MarketingClientService/>
-<!-- Comments -->
- <MarketingClientComment/>
- <!-- Projects -->
+  <main class="relative overflow-x-hidden">
+    <MarketingClientHero />
+    
+    <MarketingClientAttribute />
+    
+    <MarketingClientService />
 
-  <MarketingClientProjects/>
-  <SharedCircle class="absolute top-0 -right-10 -z-10"/>
- </section>
+    <MarketingClientProjects />
+
+    <MarketingClientBanner />
+
+    <MarketingClientComment />
+
+  </main>
 </template>
-
