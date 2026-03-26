@@ -1,46 +1,46 @@
 <script setup lang="ts">
 import {
-  BarChart3,
-  BrainCircuit,
+  Smartphone,
+  Globe,
   Cpu,
-  DatabaseZap,
+  BarChart3,
   ArrowLeft,
   Sparkle,
 } from "lucide-vue-next";
 
 const services = [
   {
-    title: "آنالیز کسب‌وکار",
+    title: "هوش مصنوعی و یادگیری ماشین",
     description:
-      "تحلیل دقیق داده‌های تجاری برای شناسایی نقاط رشد و بهینه‌سازی استراتژی‌های فروش با هوش مصنوعی.",
-    icon: BarChart3,
+      "ارائه راهکارهای پیشرفته پردازش تصویر، تحلیل داده و مدل‌های پیش‌بینی برای خودکارسازی کسب‌وکار شما.",
+    icon: Cpu,
     gradient: "from-blue-500/10 to-cyan-500/10",
     accent: "bg-blue-500",
     color: "text-red-500",
   },
   {
-    title: "هوشمندسازی نوین",
+    title: "توسعه وب‌سایت‌های مدرن",
     description:
-      "پیاده‌سازی مدل‌های یادگیری ماشین برای خودکارسازی تصمیمات پیچیده و افزایش دقت عملیاتی.",
-    icon: BrainCircuit,
+      "طراحی و برنامه‌نویسی سایت‌های فوق‌سریع با Nuxt 4 و معماری Microservices برای مقیاس‌پذیری نامحدود.",
+    icon: Globe,
     gradient: "from-purple-500/10 to-pink-500/10",
     accent: "bg-purple-500",
     color: "text-purple-500",
   },
   {
-    title: "اتوماسیون هوشمند",
+    title: "اپلیکیشن‌های موبایل (PWA/Native)",
     description:
-      "حذف کارهای تکراری و خسته‌کننده با استفاده از ربات‌های نرم‌افزاری و الگوریتم‌های هوشمند.",
-    icon: Cpu,
+      "توسعه اپلیکیشن‌های چندسکویی با تجربه کاربری عالی و هماهنگی کامل با سیستم‌عامل‌های iOS و Android.",
+    icon: Smartphone,
     gradient: "from-orange-500/10 to-red-500/10",
     accent: "bg-orange-500",
     color: "text-emerald-500",
   },
   {
-    title: "تحلیل داده‌های حجیم",
+    title: "تحلیل داده و هوش تجاری",
     description:
-      "پردازش و استخراج بینش‌های ارزشمند از کلان‌داده‌ها (Big Data) برای پیش‌بینی دقیق بازار.",
-    icon: DatabaseZap,
+      "تبدیل داده‌های خام به داشبوردها و گزارش‌های مدیریتی برای تصمیم‌گیری‌های دقیق و سودآور.",
+    icon: BarChart3,
     gradient: "from-emerald-500/10 to-teal-500/10",
     accent: "bg-emerald-500",
     color: "text-blue-500",

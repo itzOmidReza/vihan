@@ -191,7 +191,7 @@ const filteredProjects = computed(() => {
             :key="cat"
             @click="activeCategory = cat"
             :class="[
-              'px-6 py-2 rounded-xl text-sm font-bold transition-all whitespace-nowrap',
+              'px-6 py-2 rounded-xl text-sm font-bold transition-all whitespace-nowrap cursor-pointer',
               activeCategory === cat
                 ? 'bg-primary text-primary-foreground shadow-lg'
                 : 'hover:bg-background/50 text-muted-foreground',
@@ -234,16 +234,18 @@ const filteredProjects = computed(() => {
             :key="project.id"
             class="group relative bg-card rounded-[2.5rem] border border-border/50 overflow-hidden hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500"
           >
-            <div class="relative aspect-[4/3] overflow-hidden">
+            <div class="relative aspect-4/3 overflow-hidden">
               <img
                 :src="project.image"
                 :alt="project.title"
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div
-                class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8"
+                class="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8"
               >
-                <Button class="w-full rounded-2xl gap-2 font-bold shadow-2xl">
+                <Button
+                  class="w-full rounded-2xl gap-2 font-bold shadow-2xl cursor-pointer"
+                >
                   مشاهده جزئیات
                   <ExternalLink class="w-4 h-4" />
                 </Button>

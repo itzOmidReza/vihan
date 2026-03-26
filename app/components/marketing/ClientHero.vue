@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 
 <template>
   <section
-    class="relative min-h-screen w-full flex items-center justify-center py-20 overflow-hidden bg-background transition-colors duration-500"
+    class="relative min-h-screen w-full flex items-center justify-center py-28 overflow-hidden bg-background transition-colors duration-500"
   >
     <div
       class="absolute inset-0 opacity-[0.15] dark:opacity-20 [background-image:radial-linear(var(--border)_1px,transparent_1px)] bg-size-[40px_40px] mask-[radial-linear(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]"
@@ -21,23 +21,16 @@ import { Button } from "@/components/ui/button";
     <div
       class="container max-w-7xl mx-auto px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-12 z-20"
     >
+      <!-- right -->
       <div
-        class="flex-1 flex flex-col items-start gap-8 text-right order-2 lg:order-1"
+        class="flex-1 flex flex-col items-start gap-5 text-right order-2 lg:order-1"
         dir="rtl"
       >
         <div
           class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-md text-primary text-xs md:text-sm font-bold animate-in fade-in slide-in-from-top-4 duration-1000"
         >
-          <div class="relative flex h-2 w-2">
-            <span
-              class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"
-            ></span>
-            <span
-              class="relative inline-flex rounded-full h-2 w-2 bg-primary"
-            ></span>
-          </div>
           <Sparkles class="h-4 w-4" />
-          <span>پیشرو در خدمات نسل چهارم هوش مصنوعی</span>
+          <span>ویهان پیشرو در خدمات نسل چهارم هوش مصنوعی</span>
         </div>
 
         <h1
@@ -77,9 +70,9 @@ import { Button } from "@/components/ui/button";
         <div
           class="flex flex-wrap gap-5 w-full sm:w-auto animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-700"
         >
-          <a href="tel:+989185621567">
+          <NuxtLink to="/contact-us">
             <Button
-              class="relative group h-16 px-10 rounded-full bg-primary text-primary-foreground overflow-hidden shadow-lg shadow-primary/25 transition-all hover:scale-105 active:scale-95"
+              class="cursor-pointer relative group h-12 px-10 rounded-full bg-primary text-primary-foreground overflow-hidden shadow-lg shadow-primary/25 transition-all hover:scale-105 active:scale-95"
             >
               <span
                 class="relative z-10 flex items-center gap-2 text-lg font-bold"
@@ -93,11 +86,11 @@ import { Button } from "@/components/ui/button";
                 class="absolute inset-0 bg-linear-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-shimmer"
               ></div>
             </Button>
-          </a>
+          </NuxtLink>
           <NuxtLink to="/projects">
             <Button
               variant="outline"
-              class="h-16 px-10 rounded-full border-border text-foreground hover:bg-secondary transition-all gap-2 text-lg"
+              class="cursor-pointer h-12 px-8! rounded-full border-border text-foreground hover:bg-secondary transition-all gap-2 text-lg"
             >
               مشاهده پروژه‌ها
               <MousePointer2 class="w-4 h-4 text-muted-foreground" />
@@ -140,7 +133,7 @@ import { Button } from "@/components/ui/button";
           </div>
         </div>
       </div>
-
+      <!-- laft -->
       <div
         class="flex-1 relative w-full flex items-center justify-center lg:justify-end order-1 lg:order-2"
       >
@@ -192,7 +185,7 @@ import { Button } from "@/components/ui/button";
           </svg>
 
           <div
-            class="absolute top-10 -left-6 lg:-left-10 z-40 bg-background/60 backdrop-blur-2xl border border-border p-5 rounded-4xl shadow-2xl animate-float-delayed border-l-primary/50 border-l-4"
+            class="absolute top-10 -left-6 lg:-left-5 z-40 bg-background/60 backdrop-blur-2xl border border-border p-5 rounded-4xl shadow-2xl animate-float-delayed border-l-primary/50 border-l-4"
           >
             <div class="flex items-center gap-4">
               <div class="p-3 bg-primary/20 rounded-2xl">

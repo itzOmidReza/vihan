@@ -41,10 +41,10 @@ useHead({
         logo: "https://vihanco.ir/logo.png",
         description:
           "توسعه‌دهنده نرم‌افزارهای هوشمند و راهکارهای مبتنی بر هوش مصنوعی",
-        sameAs: [
-          "https://linkedin.com/company/Vihan",
-          "https://instagram.com/Vihan",
-        ],
+        // sameAs: [
+        //   "https://linkedin.com/company/Vihan",
+        //   "https://instagram.com/Vihan",
+        // ],
       }),
     },
   ],
