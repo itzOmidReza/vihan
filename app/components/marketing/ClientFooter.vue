@@ -50,7 +50,7 @@ const footerLinks = {
             <SharedLogo />
           </div>
           <p class="text-muted-foreground leading-relaxed text-sm md:text-base">
-            ما در مجموعه هوما، با بهره‌گیری از هوش مصنوعی و دانش روز نرم‌افزار،
+            ما در مجموعه ویهان، با بهره‌گیری از هوش مصنوعی و دانش روز نرم‌افزار،
             مسیر دیجیتالی شدن کسب‌وکار شما را هموار می‌کنیم. آینده همین‌جاست.
           </p>
           <div class="flex items-center gap-4">
@@ -129,11 +129,11 @@ const footerLinks = {
           <div class="pt-4 space-y-3">
             <div class="flex items-center gap-3 text-sm text-muted-foreground">
               <Phone class="w-4 h-4 text-primary" />
-              <span>۰۲۱-۱۲۳۴۵۶۷۸</span>
+              <span>083-37210153</span>
             </div>
             <div class="flex items-center gap-3 text-sm text-muted-foreground">
               <Mail class="w-4 h-4 text-primary" />
-              <span>info@ vihanco.ir</span>
+              <span>info@vihanco.ir</span>
             </div>
           </div>
         </div>

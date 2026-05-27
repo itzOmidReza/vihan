@@ -24,7 +24,7 @@ const contactInfo = [
   {
     id: "phone",
     title: "شماره تماس",
-    value: "۰۲۱-۱۲۳۴۵۶۷۸",
+    value: "083-37210153",
     icon: Phone,
     color: "bg-emerald-500/10 text-emerald-500",
   },

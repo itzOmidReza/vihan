@@ -95,7 +95,7 @@ const teamMembers = [
     role: "توسعه‌دهنده FrontEnd",
     image: "https://github.com/MobinaYousefi4.png",
     bio: "تمرکز بر رشد و تأثیر کسب و کار",
-    resumeUrl: "/resumes/mobin-yousefi-cv.pdf",
+    resumeUrl: "/resumes/mobina-yousefi-cv.pdf",
     social: {
       github: "https://github.com/MobinaYousefi4",
       linkedin: "https://www.linkedin.com/in/itzomidreza/",

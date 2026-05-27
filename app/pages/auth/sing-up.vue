@@ -7,12 +7,10 @@ import { Textarea } from "@/components/ui/textarea";
 
 import { User, Mail, Lock, Eye, EyeOff } from "lucide-vue-next";
 
-// ۱. متا‑دیتای صفحه
 definePageMeta({
   layout: "auth",
 });
 
-// ۲. فرم (reactive)
 const form = ref({
   firstName: "",
   lastName: "",
@@ -20,106 +18,118 @@ const form = ref({
   password: "",
   confirmPassword: "",
 });
+
 const showPass = ref(false);
 
-// ۳. ارسال (فقط مثال)
 async function onSubmit() {
   if (form.value.password !== form.value.confirmPassword) {
-    alert("کلمه عبور مطابقت ندارد!");
+    alert("کلمه عبور با تکرار آن یکسان نیست!");
     return;
   }
-  // …به API خود متصل بشین
-  alert("ثبت نام موفق بود! 🚀");
+  alert("ثبت‌نام با موفقیت انجام شد! 🎉");
 }
 </script>
 
 <template>
-  <!-- <section> درون layout قرار دارد؛ فقط محتوا را تعریف می‌کنیم -->
-  <section class="space-y-8">
-    <h1 class="text-4xl font-black text-center text-foreground">
-      ایجاد حساب کاربری
-    </h1>
+  <section class="max-w-xl mx-auto space-y-8 animate-fadeIn background">
+    <!-- عنوان -->
+    <div class="text-center space-y-2">
+      <h1 class="text-4xl font-extrabold text-foreground">ایجاد حساب کاربری</h1>
+      <p class="text-muted-foreground">
+        لطفاً اطلاعات خود را با دقت وارد کنید.
+      </p>
+    </div>
 
-    <form @submit.prevent="onSubmit" class="space-y-6">
-      <!-- نام & نام خانوادگی (یک ردیف ۲ ستون) -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <Label for="firstName">نام</Label>
+    <!-- کارت فرم -->
+    <div
+      class="bg-card border rounded-2xl shadow-xl px-8 py-10 space-y-6 backdrop-blur-sm"
+    >
+      <form @submit.prevent="onSubmit" class="space-y-6">
+        <!-- نام و نام خانوادگی -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div class="space-y-2">
+            <Label for="firstName">نام</Label>
+            <Input
+              id="firstName"
+              v-model="form.firstName"
+              required
+              placeholder="مثال: محمد"
+              icon-left="{ User }"
+              class="h-12 text-lg"
+            />
+          </div>
+
+          <div class="space-y-2">
+            <Label for="lastName">نام خانوادگی</Label>
+            <Input
+              id="lastName"
+              v-model="form.lastName"
+              required
+              placeholder="مثال: رضایی"
+              icon-left="{ User }"
+              class="h-12 text-lg"
+            />
+          </div>
+        </div>
+
+        <!-- ایمیل -->
+        <div class="space-y-2">
+          <Label for="email">ایمیل</Label>
           <Input
-            id="firstName"
-            v-model="form.firstName"
-            placeholder="مثال: محمد"
+            id="email"
+            type="email"
+            v-model="form.email"
             required
-            icon-left="{ User }"
+            placeholder="info@example.com"
+            icon-left="{ Mail }"
+            class="h-12 text-lg"
           />
         </div>
 
-        <div>
-          <Label for="lastName">نام خانوادگی</Label>
+        <!-- پسورد -->
+        <div class="space-y-2 relative">
+          <Label for="password">کلمه عبور</Label>
           <Input
-            id="lastName"
-            v-model="form.lastName"
-            placeholder="مثال: رضایی"
+            id="password"
+            :type="showPass ? 'text' : 'password'"
+            v-model="form.password"
             required
-            icon-left="{ User }"
+            placeholder="********"
+            icon-left="{ Lock }"
+            icon-right="{ showPass ? EyeOff : Eye }"
+            @click:icon-right="showPass = !showPass"
+            class="h-12 text-lg"
           />
         </div>
-      </div>
 
-      <!-- ایمیل -->
-      <div>
-        <Label for="email">ایمیل</Label>
-        <Input
-          id="email"
-          type="email"
-          v-model="form.email"
-          placeholder="info@example.com"
-          required
-          icon-left="{ Mail }"
-        />
-      </div>
+        <!-- تایید پسورد -->
+        <div class="space-y-2 relative">
+          <Label for="confirmPassword">تکرار کلمه عبور</Label>
+          <Input
+            id="confirmPassword"
+            :type="showPass ? 'text' : 'password'"
+            v-model="form.confirmPassword"
+            required
+            placeholder="********"
+            icon-left="{ Lock }"
+            icon-right="{ showPass ? EyeOff : Eye }"
+            @click:icon-right="showPass = !showPass"
+            class="h-12 text-lg"
+          />
+        </div>
 
-      <!-- کلمه عبور -->
-      <div class="relative">
-        <Label for="password">کلمه عبور</Label>
-        <Input
-          id="password"
-          :type="showPass ? 'text' : 'password'"
-          v-model="form.password"
-          placeholder="********"
-          required
-          icon-left="{ Lock }"
-          icon-right="{ showPass ? EyeOff : Eye }"
-          @click:icon-right="showPass = !showPass"
-        />
-      </div>
+        <!-- دکمه ثبت‌نام -->
+        <Button
+          type="submit"
+          class="w-full h-12 text-lg font-extrabold rounded-xl shadow-lg bg-primary hover:bg-primary/90 transition-all"
+        >
+          ایجاد حساب
+        </Button>
+      </form>
+    </div>
 
-      <!-- تایید کلمه عبور -->
-      <div class="relative">
-        <Label for="confirmPassword">تایید کلمه عبور</Label>
-        <Input
-          id="confirmPassword"
-          :type="showPass ? 'text' : 'password'"
-          v-model="form.confirmPassword"
-          placeholder="********"
-          required
-          icon-left="{ Lock }"
-          icon-right="{ showPass ? EyeOff : Eye }"
-          @click:icon-right="showPass = !showPass"
-        />
-      </div>
-
-      <!-- دکمه ثبت‌نام -->
-      <Button
-        type="submit"
-        class="w-full py-5 rounded-[1.25rem] text-xl font-black bg-primary hover:bg-primary/90 transition-colors shadow-lg focus-visible:ring ring-offset-background"
-      >
-        ایجاد حساب کاربری
-      </Button>
-    </form>
-
-    <!-- لینک به صفحه ورود -->
-    <p class="text-center text-muted-foreground">
+    <!-- لینک ورود -->
+    <p class="text-center text-sm text-muted-foreground">
       قبلاً حساب دارید؟
       <NuxtLink
         to="/auth/sing-in"
@@ -132,36 +142,17 @@ async function onSubmit() {
 </template>
 
 <style scoped>
-/* ---------------------------------------------------------- */
-/*   پس‌زمینه “غولای” و “blur” برای section (فقط در layout) */
-/* ---------------------------------------------------------- */
-section {
-  @apply relative;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
-/* شکل‌های بزرگ blur – در layout اضافه می‌کنیم یا اینجا */
-@layer utilities {
-  .bg-blur-shapes::before,
-  .bg-blur-shapes::after {
-    content: "";
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(120px);
-    z-index: -1;
-  }
-  .bg-blur-shapes::before {
-    width: 200px;
-    height: 200px;
-    background: rgba(139, 119, 255, 0.2); /* primary color */
-    top: -30%;
-    left: -10%;
-  }
-  .bg-blur-shapes::after {
-    width: 150px;
-    height: 150px;
-    background: rgba(0, 255, 200, 0.15);
-    bottom: -25%;
-    right: -15%;
-  }
+.animate-fadeIn {
+  animation: fadeIn 0.45s ease-out;
 }
 </style>

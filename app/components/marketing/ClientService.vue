@@ -14,9 +14,10 @@ const services = [
     description:
       "ارائه راهکارهای پیشرفته پردازش تصویر، تحلیل داده و مدل‌های پیش‌بینی برای خودکارسازی کسب‌وکار شما.",
     icon: Cpu,
-    gradient: "from-blue-500/10 to-cyan-500/10",
-    accent: "bg-blue-500",
+    gradient: "from-red-500/10 to-orange-500/10",
+    accent: "bg-red-500",
     color: "text-red-500",
+    border: "hover:border-red-500",
   },
   {
     title: "توسعه وب‌سایت‌های مدرن",
@@ -26,24 +27,27 @@ const services = [
     gradient: "from-purple-500/10 to-pink-500/10",
     accent: "bg-purple-500",
     color: "text-purple-500",
+    border: "hover:border-purple-500",
   },
   {
     title: "اپلیکیشن‌های موبایل (PWA/Native)",
     description:
       "توسعه اپلیکیشن‌های چندسکویی با تجربه کاربری عالی و هماهنگی کامل با سیستم‌عامل‌های iOS و Android.",
     icon: Smartphone,
-    gradient: "from-orange-500/10 to-red-500/10",
-    accent: "bg-orange-500",
+    gradient: "from-emerald-500/10 to-teal-500/10",
+    accent: "bg-emerald-500",
     color: "text-emerald-500",
+    border: "hover:border-emerald-500",
   },
   {
     title: "تحلیل داده و هوش تجاری",
     description:
       "تبدیل داده‌های خام به داشبوردها و گزارش‌های مدیریتی برای تصمیم‌گیری‌های دقیق و سودآور.",
     icon: BarChart3,
-    gradient: "from-emerald-500/10 to-teal-500/10",
-    accent: "bg-emerald-500",
+    gradient: "from-blue-500/10 to-cyan-500/10",
+    accent: "bg-blue-500",
     color: "text-blue-500",
+    border: "hover:border-blue-500",
   },
 ];
 </script>
@@ -91,7 +95,10 @@ const services = [
         <div
           v-for="(service, idx) in services"
           :key="idx"
-          class="group relative p-8 bg-card/40 backdrop-blur-md border border-border/50 rounded-[2.5rem] transition-all duration-500 hover:border-primary/50 hover:-translate-y-3 hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.2)] dark:hover:shadow-primary/5 overflow-hidden"
+          :class="[
+            'group relative p-8 bg-card/40 backdrop-blur-md border border-border/50 rounded-[2.5rem] transition-all duration-500 hover:-translate-y-3 hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.2)] dark:hover:shadow-primary/5 overflow-hidden',
+            service.border,
+          ]"
         >
           <div
             :class="[
