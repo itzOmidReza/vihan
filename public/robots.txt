@@ -1,5 +1,0 @@
-User-Agent: *
-Allow: /
-Disallow: /admin/    # اگر پنل مدیریت دارید که نمی‌خواهید ایندکس شود
-
-Sitemap: https://homah.vercel.app/sitemap.xml
