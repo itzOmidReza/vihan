@@ -3,7 +3,6 @@
 import { getCollection, render } from 'astro:content';
 import MainLayout from '../../layouts/main.astro';
 
-// تغییر slug به id برای سازگاری با Astro 5
 export async function getStaticPaths() {
   const projectEntries = await getCollection('projects');
   return projectEntries.map(entry => ({
@@ -13,7 +12,6 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-// روش جدید رندر کردن محتوا در Astro 5
 const { Content } = await render(entry);
 
 const formattedDate = entry.data.publishDate
@@ -25,51 +23,67 @@ const formattedDate = entry.data.publishDate
   title={entry.data.title}
   description={entry.data.problem}
 >
-  <article class="py-16 md:py-24">
-    <div class="container mx-auto px-4 md:px-8 max-w-4xl">
+  <article class="relative bg-background min-h-screen pb-24">
 
-      <header class="mb-12 border-b border-border pb-10">
-        <div class="flex items-center gap-4 mb-6">
-          <span class="inline-block px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-sm font-bold">
+    {/* هدر کیس‌استادی */}
+    <header class="relative pt-32 pb-16 overflow-hidden border-b border-border/40">
+      <div class="absolute inset-0 bg-grid-pattern opacity-20"></div>
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[400px] bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
+
+      <div class="container mx-auto px-4 md:px-8 max-w-4xl relative z-10">
+        <div class="flex items-center gap-4 mb-8">
+          <span class="inline-flex items-center px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-bold border border-primary/20">
             {entry.data.category}
           </span>
           {formattedDate && (
-            <span class="text-sm text-muted-foreground">{formattedDate}</span>
+            <span class="text-sm font-medium text-muted-foreground">{formattedDate}</span>
           )}
         </div>
-        <h1 class="font-heading text-3xl md:text-5xl font-bold text-foreground leading-[1.3] mb-8">
+
+        <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground leading-[1.2] mb-8 tracking-tight">
           {entry.data.title}
         </h1>
+      </div>
+    </header>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 bg-muted/30 p-6 md:p-8 rounded-xl border border-border/50">
-          <div>
-            <h3 class="text-lg font-bold text-foreground mb-2 flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-destructive"></span> چالش اصلی
-            </h3>
-            <p class="text-muted-foreground text-sm leading-relaxed">{entry.data.problem}</p>
-          </div>
-          <div>
-            <h3 class="text-lg font-bold text-foreground mb-2 flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-primary"></span> راه‌حل ویهان
-            </h3>
-            <p class="text-muted-foreground text-sm leading-relaxed">{entry.data.solution}</p>
-          </div>
-          <div class="md:col-span-2 pt-4 border-t border-border/40">
-            <h3 class="text-lg font-bold text-foreground mb-2 flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-success"></span> دستاورد و نتیجه
-            </h3>
-            <p class="text-foreground font-medium leading-relaxed">{entry.data.result}</p>
-          </div>
+    <div class="container mx-auto px-4 md:px-8 max-w-4xl relative z-10 -mt-10">
+
+      {/* باکس اطلاعات کلیدی (Bento Style) */}
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-16">
+        <div class="glass-panel p-6 md:p-8 rounded-3xl border-border/40">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-destructive mb-3 flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            چالش اصلی
+          </h3>
+          <p class="text-foreground/80 leading-relaxed">{entry.data.problem}</p>
         </div>
-      </header>
 
-      <div class="prose prose-lg prose-zinc dark:prose-invert max-w-none text-muted-foreground leading-loose">
+        <div class="glass-panel p-6 md:p-8 rounded-3xl border-border/40">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-primary mb-3 flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+            راه‌حل مهندسی
+          </h3>
+          <p class="text-foreground/80 leading-relaxed">{entry.data.solution}</p>
+        </div>
+
+        <div class="glass-panel p-6 md:p-8 rounded-3xl border-border/40 md:col-span-2 bg-primary/5 dark:bg-primary/10">
+          <h3 class="text-sm font-bold uppercase tracking-wider text-success mb-3 flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            دستاورد و نتیجه نهایی
+          </h3>
+          <p class="text-foreground font-medium leading-relaxed text-lg">{entry.data.result}</p>
+        </div>
+      </div>
+
+      {/* محتوای متنی مارک‌داون */}
+      <div class="prose prose-lg prose-zinc dark:prose-invert prose-headings:font-heading prose-headings:font-bold prose-a:text-primary max-w-none text-muted-foreground leading-loose">
         <Content />
       </div>
 
-      <div class="mt-16 pt-8 border-t border-border">
-        <a href="/projects" class="inline-flex items-center gap-2 text-primary font-medium hover:underline underline-offset-4">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
+      {/* دکمه بازگشت */}
+      <div class="mt-20 pt-10 border-t border-border/40 flex justify-center">
+        <a href="/projects" class="inline-flex h-12 items-center justify-center rounded-xl bg-secondary/50 backdrop-blur px-8 text-sm font-bold text-foreground border border-border/50 transition-all hover:bg-secondary hover:-translate-y-1">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
           بازگشت به لیست پروژه‌ها
         </a>
       </div>
