@@ -1,53 +1,50 @@
 ---
 // src/pages/about.astro
 import MainLayout from '../layouts/main.astro';
+import { aboutHeader, aboutStory, aboutPhilosophy } from '../data/about';
 ---
 
 <MainLayout
   title="درباره ما"
-  description="داستان شکل‌گیری ویهان؛ تیمی از پژوهشگران و مهندسین برای حل پیچیده‌ترین چالش‌های صنعتی و نرم‌افزاری."
+  description={aboutHeader.description}
 >
   <div class="relative bg-background overflow-hidden">
 
-    {/* هدر صفحه */}
     <header class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
       <div class="absolute inset-0 bg-grid-pattern opacity-30 dark:opacity-10"></div>
       <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/10 blur-[100px] rounded-full pointer-events-none"></div>
 
       <div class="container mx-auto px-4 md:px-8 relative z-10 text-center max-w-4xl">
         <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground mb-6 leading-tight tracking-tight">
-          ما قطعات آماده را به هم وصل نمی‌کنیم؛ <br/>
-          <span class="text-gradient-copper">ما معماری سیستم را از صفر می‌سازیم.</span>
+          {aboutHeader.titlePart1} <br/>
+          <span class="text-gradient-copper">{aboutHeader.titleHighlight}</span>
         </h1>
         <p class="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-          ویهان یک آژانس دیجیتال معمولی نیست. ما یک هسته مهندسی متشکل از پژوهشگران دکترا، متخصصین امنیت تهاجمی و توسعه‌دهندگان سیستم‌های توکار هستیم.
+          {aboutHeader.description}
         </p>
       </div>
     </header>
 
     <div class="container mx-auto px-4 md:px-8 pb-32">
 
-      {/* بخش داستان شکل‌گیری (کارت شیشه‌ای بزرگ با تصویر) */}
       <section class="glass-panel rounded-[2.5rem] p-8 md:p-12 lg:p-16 mb-24 border-border/40 relative overflow-hidden">
-        {/* نورپردازی داخلی */}
         <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-primary/10 blur-[80px] rounded-full pointer-events-none"></div>
 
         <div class="flex flex-col lg:flex-row gap-12 items-center relative z-10">
           <div class="lg:w-1/2 space-y-6">
-            <h2 class="text-foreground font-heading text-3xl md:text-4xl font-bold mb-6">داستان شکل‌گیری <span class="text-primary">ویهان</span></h2>
-            <p class="text-lg text-muted-foreground leading-relaxed">
-              ایده ویهان زمانی شکل گرفت که متوجه یک شکاف بزرگ در صنعت شدیم: از یک سو، دانشگاه‌ها و محققین در حال توسعه پیشرفته‌ترین الگوریتم‌های هوش مصنوعی و مدل‌های امنیتی بودند. از سوی دیگر، صنایع و سازمان‌ها با سیستم‌های ناپایدار، ناامن و ابزارهای تجاری محدود دست‌وپنجه نرم می‌کردند.
-            </p>
-            <p class="text-lg text-muted-foreground leading-relaxed">
-              حلقه مفقوده، مهندسینی بودند که زبان هر دو طرف را بفهمند. ما ۶ نفر با تخصص‌های کاملاً متمایز دور هم جمع شدیم تا این شکاف را پر کنیم. هدف ما آوردن دانش آکادمیک سطح بالا به دل زیرساخت‌های واقعی بود.
-            </p>
+            <h2 class="text-foreground font-heading text-3xl md:text-4xl font-bold mb-6">
+              {aboutStory.titleStart} <span class="text-primary">{aboutStory.titleHighlight}</span>
+            </h2>
+            {aboutStory.paragraphs.map(paragraph => (
+              <p class="text-lg text-muted-foreground leading-relaxed">{paragraph}</p>
+            ))}
           </div>
 
           <div class="lg:w-1/2 w-full">
             <div class="relative w-full aspect-[4/3] rounded-3xl overflow-hidden border border-border/30 shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop"
-                alt="تیم مهندسی در حال کار روی سخت‌افزار و نرم‌افزار"
+                src={aboutStory.image}
+                alt="داستان شکل‌گیری"
                 class="w-full h-full object-cover"
                 loading="lazy"
               />
@@ -57,55 +54,24 @@ import MainLayout from '../layouts/main.astro';
         </div>
       </section>
 
-      {/* بخش فلسفه کاری (گرید Bento) */}
       <section>
         <div class="text-center mb-16">
-          <h2 class="text-foreground font-heading text-3xl md:text-4xl font-bold mb-4">فلسفـه <span class="text-gradient-copper">مهندسی</span> ما</h2>
-          <p class="text-muted-foreground text-lg">اصولی که در تمام خطوط کدهای ما جریان دارد.</p>
+          <h2 class="text-foreground font-heading text-3xl md:text-4xl font-bold mb-4">
+            {aboutPhilosophy.titleStart} <span class="text-gradient-copper">{aboutPhilosophy.titleHighlight}</span> {aboutPhilosophy.titleEnd}
+          </h2>
+          <p class="text-muted-foreground text-lg">{aboutPhilosophy.subtitle}</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-
-          <div class="glass-panel p-8 rounded-3xl border-border/40 hover:border-primary/40 transition-all duration-300 hover:-translate-y-1">
-            <div class="w-12 h-12 rounded-xl bg-primary/20 text-primary flex items-center justify-center mb-6 border border-primary/20">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h10"></path><path d="M9 4v16"></path><path d="m3 9 3 3-3 3"></path></svg>
+          {aboutPhilosophy.items.map(item => (
+            <div class="glass-panel p-8 rounded-3xl border-border/40 hover:border-primary/40 transition-all duration-300 hover:-translate-y-1">
+              <div class={`w-12 h-12 rounded-xl bg-${item.colorClass}/20 text-${item.colorClass} flex items-center justify-center mb-6 border border-${item.colorClass}/20`} set:html={item.icon} />
+              <h3 class="font-heading text-2xl font-bold text-foreground mb-3">{item.title}</h3>
+              <p class="text-muted-foreground leading-relaxed">
+                {item.description}
+              </p>
             </div>
-            <h3 class="font-heading text-2xl font-bold text-foreground mb-3">شفافیت فنی مطلق</h3>
-            <p class="text-muted-foreground leading-relaxed">
-              ما به شما «هوش مصنوعی نسل جدید» نمی‌فروشیم. ما دقیقاً توضیح می‌دهیم که از چه معماری یادگیری ماشینی استفاده می‌کنیم و چرا این انتخاب منطقی است.
-            </p>
-          </div>
-
-          <div class="glass-panel p-8 rounded-3xl border-border/40 hover:border-primary/40 transition-all duration-300 hover:-translate-y-1">
-            <div class="w-12 h-12 rounded-xl bg-destructive/20 text-destructive flex items-center justify-center mb-6 border border-destructive/20">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-            </div>
-            <h3 class="font-heading text-2xl font-bold text-foreground mb-3">امنیت در پایین‌ترین لایه</h3>
-            <p class="text-muted-foreground leading-relaxed">
-              با حضور متخصصین تست نفوذ در هسته تیم، امنیت یک افزونه نیست که در پایان کار نصب شود. همه چیز با رویکرد امنیتی طراحی می‌شود.
-            </p>
-          </div>
-
-          <div class="glass-panel p-8 rounded-3xl border-border/40 hover:border-primary/40 transition-all duration-300 hover:-translate-y-1">
-            <div class="w-12 h-12 rounded-xl bg-success/20 text-success flex items-center justify-center mb-6 border border-success/20">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path></svg>
-            </div>
-            <h3 class="font-heading text-2xl font-bold text-foreground mb-3">تخصص به جای همه‌کاره بودن</h3>
-            <p class="text-muted-foreground leading-relaxed">
-              ما اپلیکیشن موبایل برای رزرو رستوران نمی‌سازیم. تمرکز ما منحصراً روی سیستم‌های پیچیده داده‌محور، اینترنت اشیا و امنیت زیرساخت است.
-            </p>
-          </div>
-
-          <div class="glass-panel p-8 rounded-3xl border-border/40 hover:border-primary/40 transition-all duration-300 hover:-translate-y-1">
-            <div class="w-12 h-12 rounded-xl bg-info/20 text-info flex items-center justify-center mb-6 border border-info/20">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><polyline points="16 11 18 13 22 9"></polyline></svg>
-            </div>
-            <h3 class="font-heading text-2xl font-bold text-foreground mb-3">مستقیم با هسته فنی</h3>
-            <p class="text-muted-foreground leading-relaxed">
-              در ویهان، شما با مدیران فروش صحبت نمی‌کنید. جلسات مشاوره ما مستقیماً با محققین و مهندسینی برگزار می‌شود که قرار است کدهای پروژه شما را بنویسند.
-            </p>
-          </div>
-
+          ))}
         </div>
       </section>
 

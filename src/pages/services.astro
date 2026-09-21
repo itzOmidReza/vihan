@@ -1,98 +1,36 @@
 ---
 // src/pages/services.astro
 import MainLayout from '../layouts/main.astro';
-
-const services = [
-  {
-    id: "ai",
-    title: "هوش مصنوعی و تحلیل داده",
-    subtitle: "استخراج ارزش واقعی از داده‌های خام",
-    description: "ما از مدل‌های آماده استفاده نمی‌کنیم؛ بلکه معماری‌های یادگیری ماشین را دقیقاً برای چالش اختصاصی شما طراحی و آموزش می‌دهیم.",
-    features: [
-      "پردازش تصویر و بینایی کامپیوتر (نظارت صنعتی، پزشکی)",
-      "پردازش زبان طبیعی (NLP) اختصاصی برای زبان فارسی",
-      "مدل‌سازی سری‌های زمانی برای پیش‌بینی دقیق",
-      "تشخیص آنومالی (Anomaly Detection) در داده‌های صنعتی"
-    ],
-    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=1965&auto=format&fit=crop",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.29 7 12 12 20.71 7"></polyline><line x1="12" y1="22" x2="12" y2="12"></line></svg>`
-  },
-  {
-    id: "security",
-    title: "امنیت شبکه و زیرساخت",
-    subtitle: "محافظت در سطح تحقیقاتی، نه صرفاً نصب فایروال",
-    description: "با بهره‌گیری از دانش آکادمیک (PhD) و تجربه هک قانون‌مند (Bug Bounty)، امنیت شبکه‌های سازمانی و صنعتی شما را تضمین می‌کنیم.",
-    features: [
-      "تست نفوذ (Penetration Testing) و امنیت تهاجمی",
-      "طراحی و پیاده‌سازی سیستم‌های تشخیص نفوذ (IDS)",
-      "پایش هوشمند شبکه و جلوگیری از تهدیدات Zero-day",
-      "پیکربندی پیشرفته تجهیزات سازمانی (مانند MikroTik)"
-    ],
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2070&auto=format&fit=crop",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path><path d="m9 12 2 2 4-4"></path></svg>`
-  },
-  {
-    id: "embedded",
-    title: "سیستم‌های Embedded و IoT",
-    subtitle: "نزدیک‌ترین نقطه به سخت‌افزار",
-    description: "توسعه‌ی نرم‌افزارهای سطح پایین و پایدار برای بردهای صنعتی و اینترنت اشیا، جایی که محدودیت منابع و نیاز به پایداری مطلق وجود دارد.",
-    features: [
-      "توسعه توزیع اختصاصی لینوکس (Embedded Linux / Yocto)",
-      "برنامه‌نویسی و سفارشی‌سازی بوت‌لودرها (مانند U-Boot)",
-      "توسعه و بهینه‌سازی کرنل لینوکس برای سخت‌افزار خاص",
-      "یکپارچه‌سازی سطح پایین سخت‌افزار و نرم‌افزار"
-    ],
-    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"></rect><rect width="6" height="6" x="9" y="9" rx="1"></rect><path d="M15 2v2"></path><path d="M15 20v2"></path><path d="M2 15h2"></path><path d="M2 9h2"></path><path d="M20 15h2"></path><path d="M20 9h2"></path><path d="M9 2v2"></path><path d="M9 20v2"></path></svg>`
-  },
-  {
-    id: "web",
-    title: "توسعه وب و اتصال AI",
-    subtitle: "پل ارتباطی مدل‌های پیچیده و کاربران",
-    description: "بهترین مدل‌های هوش مصنوعی بدون یک رابط کاربری سریع و ایمن بی‌فایده‌اند. ما سیستم‌های Full-Stack مدرنی توسعه می‌دهیم که تحمل بار پردازشی بالا را داشته باشند.",
-    features: [
-      "توسعه وب‌اپلیکیشن‌های Full-Stack با Astro و Nuxt",
-      "توسعه بک‌اند قدرتمند با NestJS و میکروسرویس‌ها",
-      "اتصال امن و سریع مدل‌های هوش مصنوعی به رابط کاربری",
-      "اتوماسیون جریان‌های کاری (n8n) بدون هزینه‌های جانبی گزاف"
-    ],
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=2069&auto=format&fit=crop",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>`
-  }
-];
+import { servicesHeader, servicesList } from '../data/services';
 ---
 
 <MainLayout
   title="خدمات تخصصی"
-  description="جزئیات خدمات تیم مهندسی ویهان در زمینه‌های هوش مصنوعی، امنیت سایبری، لینوکس توکار و توسعه وب اختصاصی."
+  description={servicesHeader.description}
 >
   <div class="relative bg-background overflow-hidden">
 
-    {/* هدر صفحه با پترن مهندسی */}
     <header class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
       <div class="absolute inset-0 bg-grid-pattern opacity-30 dark:opacity-10"></div>
       <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/10 blur-[100px] rounded-full pointer-events-none"></div>
 
       <div class="container mx-auto px-4 md:px-8 relative z-10 text-center max-w-3xl">
         <h1 class="font-heading text-5xl md:text-6xl font-extrabold text-foreground mb-6 leading-tight">
-          تخصص‌های <span class="text-gradient-copper">عمیق</span> ما
+          {servicesHeader.titleStart} <span class="text-gradient-copper">{servicesHeader.titleHighlight}</span> {servicesHeader.titleEnd}
         </h1>
         <p class="text-xl text-muted-foreground leading-relaxed">
-          ما یک آژانس همه‌کاره نیستیم. تخصص ما در چهار حوزه‌ی اصلی متمرکز است که در ترکیب با یکدیگر، امکان ساخت سیستم‌های هوشمند، امن و بسیار بهینه‌شده را فراهم می‌کنند.
+          {servicesHeader.description}
         </p>
       </div>
     </header>
 
-    {/* لیست خدمات */}
     <div class="container mx-auto px-4 md:px-8 pb-24 space-y-24 md:space-y-32">
-      {services.map((service, index) => (
+      {servicesList.map((service, index) => (
         <section id={service.id} class="scroll-mt-32 group">
           <div class={`flex flex-col gap-8 md:gap-16 ${index % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center`}>
 
-            {/* بخش توضیحات (کارت شیشه‌ای) */}
             <div class="w-full md:w-1/2">
               <div class="glass-panel p-8 md:p-12 rounded-[2.5rem] relative overflow-hidden border-border/40 hover:border-primary/40 transition-colors duration-500">
-                {/* نورپردازی داخلی ظریف */}
                 <div class="absolute -top-20 -right-20 w-40 h-40 bg-primary/10 blur-[50px] rounded-full pointer-events-none transition-opacity group-hover:bg-primary/20"></div>
 
                 <div class="relative z-10">
@@ -120,7 +58,6 @@ const services = [
               </div>
             </div>
 
-            {/* بخش بصری (تصویر Unsplash با افکت شناور) */}
             <div class="w-full md:w-1/2 relative">
               <div class="relative w-full aspect-[4/3] rounded-[2.5rem] overflow-hidden border border-border/30 shadow-2xl group-hover:shadow-[0_20px_60px_-15px_rgba(198,108,49,0.15)] transition-shadow duration-700">
                 <img
@@ -129,12 +66,9 @@ const services = [
                   class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-1000 ease-out opacity-90 dark:opacity-70"
                   loading="lazy"
                 />
-                {/* گرادیانت روی تصویر برای هماهنگی با تم */}
                 <div class="absolute inset-0 bg-gradient-to-tr from-background/80 via-background/20 to-transparent mix-blend-multiply dark:mix-blend-overlay"></div>
                 <div class="absolute inset-0 border border-white/10 rounded-[2.5rem]"></div>
               </div>
-
-              {/* دکوراسیون پشت تصویر */}
               <div class="absolute -inset-4 bg-primary/5 blur-2xl -z-10 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
             </div>
 
