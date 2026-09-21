@@ -1,0 +1,127 @@
+---
+// src/pages/services.astro
+import MainLayout from '../layouts/main.astro';
+
+const services = [
+  {
+    id: "ai",
+    title: "هوش مصنوعی و تحلیل داده",
+    subtitle: "استخراج ارزش واقعی از داده‌های خام",
+    description: "ما از مدل‌های آماده استفاده نمی‌کنیم؛ بلکه معماری‌های یادگیری ماشین را دقیقاً برای چالش اختصاصی شما طراحی و آموزش می‌دهیم.",
+    features: [
+      "پردازش تصویر و بینایی کامپیوتر (نظارت صنعتی، پزشکی)",
+      "پردازش زبان طبیعی (NLP) اختصاصی برای زبان فارسی",
+      "مدل‌سازی سری‌های زمانی برای پیش‌بینی دقیق",
+      "تشخیص آنومالی (Anomaly Detection) در داده‌های صنعتی"
+    ],
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.29 7 12 12 20.71 7"></polyline><line x1="12" y1="22" x2="12" y2="12"></line></svg>`
+  },
+  {
+    id: "security",
+    title: "امنیت شبکه و زیرساخت",
+    subtitle: "محافظت در سطح تحقیقاتی، نه صرفاً نصب فایروال",
+    description: "با بهره‌گیری از دانش آکادمیک (PhD) و تجربه هک قانون‌مند (Bug Bounty)، امنیت شبکه‌های سازمانی و صنعتی شما را تضمین می‌کنیم.",
+    features: [
+      "تست نفوذ (Penetration Testing) و امنیت تهاجمی",
+      "طراحی و پیاده‌سازی سیستم‌های تشخیص نفوذ (IDS)",
+      "پایش هوشمند شبکه و جلوگیری از تهدیدات Zero-day",
+      "پیکربندی پیشرفته تجهیزات سازمانی (مانند MikroTik)"
+    ],
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path><path d="m9 12 2 2 4-4"></path></svg>`
+  },
+  {
+    id: "embedded",
+    title: "سیستم‌های Embedded و IoT",
+    subtitle: "نزدیک‌ترین نقطه به سخت‌افزار",
+    description: "توسعه‌ی نرم‌افزارهای سطح پایین و پایدار برای بردهای صنعتی و اینترنت اشیا، جایی که محدودیت منابع و نیاز به پایداری مطلق وجود دارد.",
+    features: [
+      "توسعه توزیع اختصاصی لینوکس (Embedded Linux / Yocto)",
+      "برنامه‌نویسی و سفارشی‌سازی بوت‌لودرها (مانند U-Boot)",
+      "توسعه و بهینه‌سازی کرنل لینوکس برای سخت‌افزار خاص",
+      "یکپارچه‌سازی سطح پایین سخت‌افزار و نرم‌افزار"
+    ],
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"></rect><rect width="6" height="6" x="9" y="9" rx="1"></rect><path d="M15 2v2"></path><path d="M15 20v2"></path><path d="M2 15h2"></path><path d="M2 9h2"></path><path d="M20 15h2"></path><path d="M20 9h2"></path><path d="M9 2v2"></path><path d="M9 20v2"></path></svg>`
+  },
+  {
+    id: "web",
+    title: "توسعه وب و اتصال AI",
+    subtitle: "پل ارتباطی مدل‌های پیچیده و کاربران",
+    description: "بهترین مدل‌های هوش مصنوعی بدون یک رابط کاربری سریع و ایمن بی‌فایده‌اند. ما سیستم‌های Full-Stack مدرنی توسعه می‌دهیم که تحمل بار پردازشی بالا را داشته باشند.",
+    features: [
+      "توسعه وب‌اپلیکیشن‌های Full-Stack با Astro و Nuxt",
+      "توسعه بک‌اند قدرتمند با NestJS و میکروسرویس‌ها",
+      "اتصال امن و سریع مدل‌های هوش مصنوعی به رابط کاربری",
+      "اتوماسیون جریان‌های کاری (n8n) بدون هزینه‌های جانبی گزاف"
+    ],
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>`
+  }
+];
+---
+
+<MainLayout
+  title="خدمات تخصصی"
+  description="جزئیات خدمات تیم مهندسی ویهان در زمینه‌های هوش مصنوعی، امنیت سایبری، لینوکس توکار و توسعه وب اختصاصی."
+>
+  <div class="py-16 md:py-24">
+    <div class="container mx-auto px-4 md:px-8">
+
+      {/* هدر صفحه */}
+      <header class="mb-20 max-w-3xl">
+        <h1 class="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6">
+          خدمات مهندسی، <span class="text-primary">نه شعارهای تجاری.</span>
+        </h1>
+        <p class="text-lg text-muted-foreground leading-relaxed">
+          ما یک آژانس همه‌کاره نیستیم. تخصص ما در چهار حوزه‌ی اصلی متمرکز است که در ترکیب با یکدیگر، امکان ساخت سیستم‌های هوشمند، امن و بسیار بهینه‌شده را فراهم می‌کنند.
+        </p>
+      </header>
+
+      {/* لیست خدمات */}
+      <div class="space-y-20 md:space-y-32">
+        {services.map((service, index) => (
+          <section id={service.id} class="scroll-mt-32">
+            <div class={`flex flex-col gap-10 md:gap-16 ${index % 2 !== 0 ? 'md:flex-row-reverse' : 'md:flex-row'}`}>
+
+              {/* بخش توضیحات */}
+              <div class="md:w-1/2 flex flex-col justify-center">
+                <div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10 text-primary" set:html={service.icon} />
+                <h2 class="font-heading text-3xl font-bold text-foreground mb-3">{service.title}</h2>
+                <h3 class="text-lg font-medium text-primary mb-6">{service.subtitle}</h3>
+                <p class="text-muted-foreground leading-relaxed mb-8">
+                  {service.description}
+                </p>
+
+                <div class="space-y-3">
+                  <span class="text-sm font-bold text-foreground block mb-4">جزئیات و قابلیت‌ها:</span>
+                  <ul class="space-y-4">
+                    {service.features.map(feature => (
+                      <li class="flex items-start gap-3">
+                        <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-secondary/20 text-secondary mt-0.5">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        </span>
+                        <span class="text-foreground">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              {/* بخش بصری (کارت تزئینی مینیمال) */}
+              <div class="md:w-1/2 flex items-center justify-center">
+                <div class="relative w-full max-w-md aspect-square rounded-2xl bg-muted/30 border border-border/50 flex items-center justify-center overflow-hidden">
+                  <div class="absolute inset-0 bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] bg-[size:24px_24px] opacity-20"></div>
+                  <div class="relative z-10 w-32 h-32 text-muted-foreground/30" set:html={service.icon} />
+
+                  {/* دکوراسیون گوشه‌ها */}
+                  <div class="absolute top-4 right-4 w-2 h-2 rounded-full bg-border"></div>
+                  <div class="absolute bottom-4 left-4 w-2 h-2 rounded-full bg-border"></div>
+                </div>
+              </div>
+
+            </div>
+          </section>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</MainLayout>

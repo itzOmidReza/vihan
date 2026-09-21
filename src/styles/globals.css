@@ -3,6 +3,8 @@
 /* رنگ برند: #831C91 (تم روشن) و #d98be8 (تم تیره). بقیه‌ی رابط خنثی است. */
 
 @import "tailwindcss";
+@source "../**/*.astro"; /* این خط به Tailwind می‌گوید فایل‌های Astro را اسکن کند */
+@source "../**/*.tsx";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
