@@ -3,32 +3,31 @@
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import MainLayout from '../../layouts/main.astro';
+import { teamIndexData } from '../../data/team';
 
 const allTeam = await getCollection('team');
 ---
 
 <MainLayout
   title="هسته مهندسی ویهان"
-  description="آشنایی با متخصصین و پژوهشگران تیم ویهان در حوزه‌های هوش مصنوعی، امنیت شبکه و سیستم‌های نهفته."
+  description={teamIndexData.header.description}
 >
   <div class="relative bg-background overflow-hidden min-h-screen">
 
-    {/* هدر صفحه */}
     <header class="relative pt-32 pb-20 md:pt-40 md:pb-24 overflow-hidden border-b border-border/20">
       <div class="absolute inset-0 bg-grid-pattern opacity-30 dark:opacity-10"></div>
       <div class="absolute top-0 left-1/4 w-[600px] h-[300px] bg-primary/10 blur-[100px] rounded-full pointer-events-none"></div>
 
       <div class="container mx-auto px-4 md:px-8 relative z-10 text-center max-w-3xl">
         <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground mb-6 tracking-tight">
-          مهندسین <span class="text-gradient-copper">پشت پرده</span>
+          {teamIndexData.header.titleStart} <span class="text-gradient-copper">{teamIndexData.header.titleGradient}</span>
         </h1>
         <p class="text-lg text-muted-foreground leading-relaxed">
-          ما یک تیم از توسعه‌دهندگان و پژوهشگران (PhD) هستیم که دانش آکادمیک را با تجربه سخت‌افزاری و نرم‌افزاری سطح پایین ترکیب کرده‌ایم.
+          {teamIndexData.header.description}
         </p>
       </div>
     </header>
 
-    {/* گرید اعضای تیم */}
     <section class="container mx-auto px-4 md:px-8 py-24 relative z-10">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {allTeam.map((member: CollectionEntry<'team'>) => (
@@ -51,7 +50,7 @@ const allTeam = await getCollection('team');
             </div>
 
             <div class="mb-8 flex-1 relative z-10">
-              <span class="text-xs font-bold uppercase tracking-wider text-muted-foreground block mb-4">حوزه‌های تمرکز فنی:</span>
+              <span class="text-xs font-bold uppercase tracking-wider text-muted-foreground block mb-4">{teamIndexData.labels.focusAreas}</span>
               <div class="flex flex-wrap gap-2">
                 {member.data.specialties.map((specialty: string) => (
                   <span class="inline-flex items-center px-3 py-1.5 rounded-lg bg-secondary/40 backdrop-blur-md text-foreground/80 text-xs font-medium border border-border/50">
@@ -62,7 +61,7 @@ const allTeam = await getCollection('team');
             </div>
 
             <div class="mt-auto pt-5 border-t border-border/30 flex items-center text-sm font-bold text-foreground group-hover:text-primary transition-colors relative z-10">
-              بررسی سوابق تخصصی
+              {teamIndexData.labels.viewProfile}
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="rotate-180 mr-2 group-hover:-translate-x-1 transition-transform"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
             </div>
 
