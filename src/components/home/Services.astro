@@ -1,63 +1,87 @@
 ---
 // src/components/home/Services.astro
-
-const services = [
-  {
-    id: "ai",
-    title: "هوش مصنوعی و تحلیل داده",
-    description: "توسعه مدل‌های بینایی کامپیوتر، پردازش زبان طبیعی (NLP فارسی)، پیش‌بینی سری زمانی و تشخیص آنومالی صنعتی.",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.29 7 12 12 20.71 7"></polyline><line x1="12" y1="22" x2="12" y2="12"></line></svg>`,
-  },
-  {
-    id: "security",
-    title: "امنیت شبکه و زیرساخت",
-    description: "تست نفوذ و امنیت تهاجمی، پیاده‌سازی سیستم‌های تشخیص نفوذ (IDS)، پایش هوشمند شبکه و پیکربندی سازمانی MikroTik.",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path><path d="m9 12 2 2 4-4"></path></svg>`,
-  },
-  {
-    id: "embedded",
-    title: "سیستم‌های Embedded و IoT",
-    description: "توسعه لینوکس تعبیه‌شده (Yocto)، برنامه‌نویسی بوت‌لودر (U-Boot)، توسعه کرنل و یکپارچه‌سازی سطح پایین سخت‌افزار.",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"></rect><rect width="6" height="6" x="9" y="9" rx="1"></rect><path d="M15 2v2"></path><path d="M15 20v2"></path><path d="M2 15h2"></path><path d="M2 9h2"></path><path d="M20 15h2"></path><path d="M20 9h2"></path><path d="M9 2v2"></path><path d="M9 20v2"></path></svg>`,
-  },
-  {
-    id: "web",
-    title: "توسعه وب و اتصال AI",
-    description: "ساخت اپلیکیشن‌های Full-Stack (با Astro و Nuxt/NestJS) و اتصال ایمن مدل‌های هوش مصنوعی به رابط کاربری تحت وب.",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>`,
-  }
-];
 ---
 
-<section class="py-16 md:py-24 bg-muted/30">
-  <div class="container mx-auto px-4 md:px-8">
+<section class="py-24 relative bg-background overflow-hidden">
+  <div class="container mx-auto px-4 md:px-8 relative z-10">
 
-    <div class="mb-12 md:mb-16 max-w-2xl">
-      <h2 class="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">تخصص‌های اصلی ما</h2>
-      <p class="text-lg text-muted-foreground">
-        ما همه‌کاره نیستیم. تمرکز ما روی چهار حوزه مهندسی است که در آن‌ها تجربه اثبات‌شده و دانش تحقیقاتی عمیقی داریم.
+    <div class="mb-16 md:mb-20 text-center max-w-3xl mx-auto">
+      <h2 class="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6 tracking-tight">
+        حوزه‌های <span class="text-gradient-copper">تخصص</span> ما
+      </h2>
+      <p class="text-lg text-muted-foreground leading-relaxed">
+        ما یک آژانس همه‌کاره نیستیم. تمرکز ما منحصراً روی چهار حوزه مهندسی عمیق است که ترکیب آن‌ها، زیرساخت‌های بی‌رقیبی خلق می‌کند.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-      {services.map((service) => (
-        <div class="group relative overflow-hidden rounded-xl border border-border bg-card p-6 md:p-8 text-card-foreground shadow-sm transition-all hover:shadow-md hover:border-primary/30">
+    {/* Bento Grid Layout */}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[320px]">
 
-          <div class="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground" set:html={service.icon} />
-
-          <h3 class="font-heading text-xl font-bold mb-3 text-foreground">{service.title}</h3>
-
-          <p class="text-muted-foreground leading-relaxed mb-6">
-            {service.description}
-          </p>
-
-          <a href={`/services#${service.id}`} class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline underline-offset-4">
-            جزئیات بیشتر
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="rotate-180"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-          </a>
+      {/* Box 1: AI (Span 2 cols on LG) */}
+      <a href="/services#ai" class="group relative overflow-hidden rounded-3xl glass-panel md:col-span-2 p-8 md:p-10 flex flex-col justify-end border-border/50 hover:border-primary/50 transition-all duration-300">
+        <div class="absolute inset-0 z-0 bg-muted">
+          <img
+            src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop"
+            alt="AI and Data Science Background"
+            class="w-full h-full object-cover opacity-30 dark:opacity-20 group-hover:scale-110 transition-transform duration-1000 ease-out"
+            loading="lazy"
+          />
+          {/* گرادیانت برای خوانایی متن */}
+          <div class="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
         </div>
-      ))}
-    </div>
+        <div class="relative z-10 transform transition-transform duration-500 group-hover:-translate-y-2">
+          <div class="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/20 text-primary backdrop-blur-md border border-primary/20">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.29 7 12 12 20.71 7"></polyline><line x1="12" y1="22" x2="12" y2="12"></line></svg>
+          </div>
+          <h3 class="font-heading text-3xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">هوش مصنوعی و داده</h3>
+          <p class="text-muted-foreground max-w-lg text-lg">پردازش تصویر، NLP فارسی و توسعه مدل‌های یادگیری ماشین اختصاصی برای استخراج ارزش از داده‌های خام صنعتی و پزشکی.</p>
+        </div>
+      </a>
 
+      {/* Box 2: Security (Standard size) */}
+      <a href="/services#security" class="group relative overflow-hidden rounded-3xl glass-panel p-8 flex flex-col justify-between border-border/50 hover:border-primary/50 transition-all duration-300">
+         <div class="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-secondary/50 text-foreground backdrop-blur-md group-hover:bg-primary/20 group-hover:text-primary transition-colors border border-border/50">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path><path d="m9 12 2 2 4-4"></path></svg>
+          </div>
+          <div class="relative z-10 transform transition-transform duration-500 group-hover:-translate-y-2">
+            <h3 class="font-heading text-2xl font-bold text-foreground mb-3">امنیت شبکه</h3>
+            <p class="text-muted-foreground text-sm leading-relaxed">محافظت در سطح تحقیقاتی، تست نفوذ و توسعه سیستم‌های تشخیص نفوذ (IDS) برای شبکه‌های حساس.</p>
+          </div>
+          <div class="absolute -bottom-16 -right-16 w-48 h-48 bg-primary/5 blur-[60px] rounded-full group-hover:bg-primary/20 transition-colors duration-700"></div>
+      </a>
+
+      {/* Box 3: Embedded (Standard size) */}
+      <a href="/services#embedded" class="group relative overflow-hidden rounded-3xl glass-panel p-8 flex flex-col justify-between border-border/50 hover:border-primary/50 transition-all duration-300">
+         <div class="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-secondary/50 text-foreground backdrop-blur-md group-hover:bg-primary/20 group-hover:text-primary transition-colors border border-border/50">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"></rect><rect width="6" height="6" x="9" y="9" rx="1"></rect><path d="M15 2v2"></path><path d="M15 20v2"></path><path d="M2 15h2"></path><path d="M2 9h2"></path><path d="M20 15h2"></path><path d="M20 9h2"></path><path d="M9 2v2"></path><path d="M9 20v2"></path></svg>
+          </div>
+          <div class="relative z-10 transform transition-transform duration-500 group-hover:-translate-y-2">
+            <h3 class="font-heading text-2xl font-bold text-foreground mb-3">سیستم‌های Embedded</h3>
+            <p class="text-muted-foreground text-sm leading-relaxed">توسعه کرنل لینوکس، برنامه‌نویسی بوت‌لودرها و سفارشی‌سازی نرم‌افزار برای سخت‌افزارهای پردازش لبه (Edge).</p>
+          </div>
+          <div class="absolute top-0 left-0 w-32 h-32 bg-primary/5 blur-[50px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+      </a>
+
+      {/* Box 4: Web (Span 2 cols on LG) */}
+      <a href="/services#web" class="group relative overflow-hidden rounded-3xl glass-panel md:col-span-2 p-8 md:p-10 flex flex-col justify-end border-border/50 hover:border-primary/50 transition-all duration-300">
+        <div class="absolute inset-0 z-0 bg-muted">
+          <img
+            src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop"
+            alt="Web Development and AI Integration"
+            class="w-full h-full object-cover opacity-30 dark:opacity-20 group-hover:scale-110 transition-transform duration-1000 ease-out"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-background/20"></div>
+        </div>
+        <div class="relative z-10 transform transition-transform duration-500 group-hover:-translate-y-2">
+          <div class="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/20 text-primary backdrop-blur-md border border-primary/20">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+          </div>
+          <h3 class="font-heading text-3xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">توسعه وب و اتصال AI</h3>
+          <p class="text-muted-foreground max-w-lg text-lg">توسعه پلتفرم‌های Full-Stack مدرن و ایمن با Astro و NestJS برای اتصال مدل‌های پیچیده به رابط کاربری با تحمل بار بالا.</p>
+        </div>
+      </a>
+
+    </div>
   </div>
 </section>
