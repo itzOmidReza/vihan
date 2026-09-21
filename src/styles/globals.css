@@ -1,9 +1,9 @@
-/* src/styles/global.css */
+/* src/styles/globals.css */
 /* سیستم طراحی ویهان — Astro + Tailwind v4 + shadcn/ui (RTL / فارسی) */
-/* رنگ برند: #831C91 (تم روشن) و #d98be8 (تم تیره). بقیه‌ی رابط خنثی است. */
+/* تم: مس و جوهر (Copper & Ink) — طراحی مدرن، عمیق و مهندسی */
 
 @import "tailwindcss";
-@source "../**/*.astro"; /* این خط به Tailwind می‌گوید فایل‌های Astro را اسکن کند */
+@source "../**/*.astro";
 @source "../**/*.tsx";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
@@ -11,7 +11,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ==========================================================================
-   فونت فارسی: Vazirmatn (فایل: public/fonts/Vazirmatn-VF.woff2)
+   فونت فارسی: Vazirmatn
    ========================================================================== */
 @font-face {
   font-family: "Vazirmatn";
@@ -22,17 +22,17 @@
 }
 
 /* ==========================================================================
-   توکن‌های Tailwind
+   توکن‌های Tailwind (حفظ کامل ساختار Shadcn)
    ========================================================================== */
 @theme inline {
-  /* فونت‌ها */
   --font-sans: "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-sans);
   --font-mono: "Fira Code", "JetBrains Mono", ui-monospace, Consolas, monospace;
 
-  /* رنگ‌های برند (bg-brand، text-brand-light و ...) */
-  --color-brand: #831c91;
-  --color-brand-light: #d98be8;
+  /* رنگ‌های برند اختصاصی (مس و جوهر) */
+  --color-brand: #C66C31;
+  --color-brand-light: #DE854D;
+  --color-ink: #0F172A;
 
   /* رنگ‌های سمانتیک shadcn */
   --color-background: var(--background);
@@ -54,33 +54,10 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  /* وضعیت‌ها (Mistake / Challenge / Solution) */
+  /* وضعیت‌ها */
   --color-success: var(--success);
   --color-warning: var(--warning);
   --color-info: var(--info);
-
-  /* رنگ مسیرهای آموزشی */
-  --color-track-html: var(--track-html);
-  --color-track-css: var(--track-css);
-  --color-track-js: var(--track-js);
-  --color-track: var(--track-accent);
-
-  /* نمودار */
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-
-  /* سایدبار */
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
 
   /* شعاع‌ها */
   --radius-sm: calc(var(--radius) * 0.6);
@@ -89,122 +66,101 @@
   --radius-xl: calc(var(--radius) * 1.4);
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
 /* ==========================================================================
-   تم روشن (پیش‌فرض) — رابط خنثی، رنگ برند فقط روی primary
+   تم روشن — کاغذ مات و مس (Premium Light)
    ========================================================================== */
 :root {
-  --radius: 0.625rem;
+  --radius: 0.75rem; /* کمی گردتر برای ظاهر مدرن‌تر */
 
-  --background: #ffffff;
-  --foreground: #18181b;
-  --card: #ffffff;
-  --card-foreground: #18181b;
-  --popover: #ffffff;
-  --popover-foreground: #18181b;
+  --background: #FCFBFA; /* سفید خالص نه، کمی گرم شبیه کاغذ */
+  --foreground: #0F172A; /* جوهر تیره (Ink) به جای مشکی خالص */
+  --card: #FFFFFF;
+  --card-foreground: #0F172A;
+  --popover: #FFFFFF;
+  --popover-foreground: #0F172A;
 
-  --primary: #831c91; /* رنگ برند */
-  --primary-foreground: #ffffff;
-  --secondary: #f4f4f5;
-  --secondary-foreground: #18181b;
-  --muted: #f4f4f5;
-  --muted-foreground: #71717a;
-  --accent: #f7eef9; /* سطح hover با رگه‌ی خیلی کم‌رنگ برند */
-  --accent-foreground: #4a0f54;
-  --destructive: #dc2626;
+  --primary: #C66C31; /* مس (Copper) */
+  --primary-foreground: #FFFFFF;
+  --secondary: #F1F5F9;
+  --secondary-foreground: #0F172A;
+  --muted: #F1F5F9;
+  --muted-foreground: #64748B;
+  --accent: #FDF8F5; /* هاله بسیار کم‌رنگ مس برای هاور */
+  --accent-foreground: #9A5223;
+  --destructive: #EF4444;
 
-  --border: #e4e4e7;
-  --input: #e4e4e7;
-  --ring: #831c91;
+  --border: #E2E8F0;
+  --input: #E2E8F0;
+  --ring: #C66C31;
 
-  /* وضعیت‌ها */
-  --success: #15803d;
-  --warning: #dc2626;
-  --info: #2563eb;
-
-  /* مسیرهای آموزشی */
-  --track-html: #e44d26;
-  --track-css: #1572b6;
-  --track-js: #f7df1e;
-  --track-accent: var(--primary);
-
-  /* نمودار (درجه‌بندی برند) */
-  --chart-1: #831c91;
-  --chart-2: #a94bb8;
-  --chart-3: #c987d4;
-  --chart-4: #71717a;
-  --chart-5: #a1a1aa;
-
-  /* سایدبار */
-  --sidebar: #fafafa;
-  --sidebar-foreground: #18181b;
-  --sidebar-primary: #831c91;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #f7eef9;
-  --sidebar-accent-foreground: #4a0f54;
-  --sidebar-border: #e4e4e7;
-  --sidebar-ring: #831c91;
+  --success: #10B981;
+  --warning: #F59E0B;
+  --info: #3B82F6;
 }
 
 /* ==========================================================================
-   تم تیره — نسخه‌ی روشن‌تر برند برای کنتراست کافی
+   تم تیره — اعماق شبکه و مس درخشان (Deep Tech Dark)
    ========================================================================== */
 .dark {
-  --background: #0f0f12;
-  --foreground: #f4f4f5;
-  --card: #17171c;
-  --card-foreground: #f4f4f5;
-  --popover: #17171c;
-  --popover-foreground: #f4f4f5;
+  --background: #050507; /* تاریکی مطلق مهندسی */
+  --foreground: #F8FAFC;
+  --card: #0F0F13;
+  --card-foreground: #F8FAFC;
+  --popover: #0F0F13;
+  --popover-foreground: #F8FAFC;
 
-  --primary: #d98be8; /* رنگ برند در تم تیره */
-  --primary-foreground: #1a0a1e;
-  --secondary: #23232a;
-  --secondary-foreground: #f4f4f5;
-  --muted: #23232a;
-  --muted-foreground: #a1a1aa;
-  --accent: #2a1630;
-  --accent-foreground: #f0d0f7;
-  --destructive: #f87171;
+  --primary: #DE854D; /* مس روشن‌تر برای کنتراست در تاریکی */
+  --primary-foreground: #1A0D05;
+  --secondary: #1E293B;
+  --secondary-foreground: #F8FAFC;
+  --muted: #1E1E24;
+  --muted-foreground: #94A3B8;
+  --accent: #26170E;
+  --accent-foreground: #FADECD;
+  --destructive: #F87171;
 
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: #d98be8;
+  --border: #27272A;
+  --input: #27272A;
+  --ring: #DE854D;
 
-  --success: #3ecf8e;
-  --warning: #ff6b6b;
-  --info: #5aa9e6;
-
-  --track-accent: var(--primary);
-
-  --chart-1: #d98be8;
-  --chart-2: #b66bc6;
-  --chart-3: #8f4a9e;
-  --chart-4: #a1a1aa;
-  --chart-5: #71717a;
-
-  --sidebar: #131317;
-  --sidebar-foreground: #f4f4f5;
-  --sidebar-primary: #d98be8;
-  --sidebar-primary-foreground: #1a0a1e;
-  --sidebar-accent: #2a1630;
-  --sidebar-accent-foreground: #f0d0f7;
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: #d98be8;
-}
-
-/* رنگ تاکیدی هر مسیر (با data-track روی body یا layout) */
-[data-track="html-css"] {
-  --track-accent: var(--track-html);
-}
-[data-track="javascript"] {
-  --track-accent: var(--track-js);
+  --success: #34D399;
+  --warning: #FBBF24;
+  --info: #60A5FA;
 }
 
 /* ==========================================================================
-   پایه‌ی سند: RTL + فونت فارسی
+   کلاس‌های کمکی (Utilities) برای UI/UX مدرن
+   ========================================================================== */
+@layer utilities {
+  /* افکت گلس‌مورفیسم برای کارت‌ها و هدر */
+  .glass-panel {
+    @apply bg-background/70 backdrop-blur-lg border border-white/10 dark:border-white/5 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.1)];
+  }
+
+  /* پترن گرید مهندسی برای پس‌زمینه */
+  .bg-grid-pattern {
+    background-image: linear-gradient(to right, var(--color-border) 1px, transparent 1px),
+                      linear-gradient(to bottom, var(--color-border) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: linear-gradient(to bottom, white, transparent 80%);
+    -webkit-mask-image: linear-gradient(to bottom, white, transparent 80%);
+  }
+
+  /* گرادیانت متنی خیره‌کننده برای تیترهای اصلی */
+  .text-gradient-copper {
+    @apply bg-clip-text text-transparent bg-gradient-to-l from-primary to-amber-500 dark:to-amber-300;
+  }
+
+  /* افکت نئون ظریف برای دکمه‌های اصلی در تم تیره */
+  .glow-copper {
+    box-shadow: 0 0 20px -5px var(--color-primary);
+  }
+}
+
+/* ==========================================================================
+   پایه‌ی سند
    ========================================================================== */
 @layer base {
   * {
@@ -213,7 +169,7 @@
 
   html {
     @apply font-sans;
-    direction: rtl; /* پشتیبان؛ در layout حتماً <html lang="fa" dir="rtl"> بگذارید */
+    direction: rtl;
     scroll-behavior: smooth;
   }
 
@@ -222,17 +178,9 @@
     line-height: 1.8;
   }
 
-  p,
-  li {
-    line-height: 1.9;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4 {
-    @apply font-heading font-bold text-foreground;
-    line-height: 1.5;
+  h1, h2, h3, h4 {
+    @apply font-heading font-bold text-foreground tracking-tight;
+    line-height: 1.4;
     scroll-margin-top: 5rem;
   }
 
@@ -240,26 +188,16 @@
     text-decoration: none;
   }
 
-  :focus-visible {
-    outline: 2px solid var(--ring);
-    outline-offset: 2px;
-  }
-
   ::selection {
-    background: color-mix(in oklab, var(--primary) 25%, transparent);
+    background: color-mix(in oklab, var(--primary) 20%, transparent);
   }
 }
 
 /* ==========================================================================
-   قانون طلایی: کد همیشه LTR بماند
+   کدها (LTR)
    ========================================================================== */
 @layer base {
-  code,
-  pre,
-  kbd,
-  samp,
-  .expressive-code,
-  .astro-code {
+  code, pre, kbd, samp, .expressive-code, .astro-code {
     direction: ltr;
     text-align: left;
     font-family: var(--font-mono);
@@ -283,28 +221,11 @@
 }
 
 /* ==========================================================================
-   کامپوننت‌های مشترک
-   ========================================================================== */
-@layer components {
-  .updated-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--success);
-    background-color: color-mix(in oklab, var(--success) 14%, transparent);
-    border-radius: 999px;
-    padding: 0.15rem 0.6rem;
-  }
-}
-
-/* ==========================================================================
-   اسکرول‌بار و کاهش حرکت
+   اسکرول‌بار
    ========================================================================== */
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-track {
   background: var(--background);
@@ -315,16 +236,4 @@
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--muted-foreground);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
 }
