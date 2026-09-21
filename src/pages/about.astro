@@ -1,0 +1,70 @@
+---
+// src/pages/about.astro
+import MainLayout from '../layouts/main.astro';
+---
+
+<MainLayout
+  title="درباره ما"
+  description="داستان شکل‌گیری ویهان؛ ترکیبی از تخصص‌های عمیق مهندسی برای حل چالش‌های پیچیده صنعتی و نرم‌افزاری."
+>
+  <div class="py-16 md:py-24">
+    <div class="container mx-auto px-4 md:px-8 max-w-4xl">
+
+      {/* هدر */}
+      <header class="mb-16 border-b border-border pb-10">
+        <h1 class="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6">
+          داستان ویهان؛ <br/>
+          <span class="text-primary">مهندسی عمیق، بدون حاشیه.</span>
+        </h1>
+        <p class="text-lg text-muted-foreground leading-relaxed">
+          ویهان از یک نیاز واقعی متولد شد: جای خالی تیم‌هایی که بتوانند چالش‌های پیچیده را نه با قالب‌های آماده، بلکه با دانش سطح پایین و تحقیقاتی حل کنند.
+        </p>
+      </header>
+
+      {/* محتوای اصلی */}
+      <div class="prose prose-lg prose-zinc dark:prose-invert max-w-none text-muted-foreground leading-loose">
+
+        <h2 class="text-foreground font-heading text-2xl font-bold mt-10 mb-4">چرا ویهان شکل گرفت؟</h2>
+        <p>
+          در دنیای امروز، مرز بین نرم‌افزار، سخت‌افزار و هوش مصنوعی در حال از بین رفتن است. یک سیستم مدرن صنعتی یا سازمانی، دیگر فقط یک وب‌سایت یا یک دیتابیس نیست. این سیستم‌ها به الگوریتم‌های هوشمند برای تحلیل، زیرساخت‌های امن برای بقا و سخت‌افزارهای بهینه‌شده برای اجرا نیاز دارند.
+        </p>
+        <p>
+          ما متوجه شدیم که اکثر شرکت‌ها، یا فقط در توسعه وب مهارت دارند، یا فقط در هوش مصنوعی. <strong>ویهان</strong> برای پر کردن این خلأ به وجود آمد. ما تیمی از پژوهشگران دکترا و مهندسین نرم‌افزار را زیر یک سقف جمع کردیم تا راه‌حل‌های جامع بسازیم.
+        </p>
+
+        <h2 class="text-foreground font-heading text-2xl font-bold mt-10 mb-4">فلسفه کاری ما</h2>
+        <ul class="space-y-4 mt-4 list-none pl-0">
+          <li class="flex items-start gap-3">
+            <span class="text-primary mt-1 shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            </span>
+            <span class="text-foreground"><strong>متخصصین، نه واسطه‌ها:</strong> در ویهان شما مستقیماً با مهندسین و محققین در ارتباط هستید. لایه‌های اضافی مدیریت پروژه که باعث افت کیفیت و افزایش هزینه می‌شوند را حذف کرده‌ایم.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-primary mt-1 shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            </span>
+            <span class="text-foreground"><strong>راه‌حل‌های اختصاصی:</strong> اگر مشکل شما با یک ابزار آماده حل می‌شود، صادقانه به شما می‌گوییم. اما اگر نیاز به توسعه کرنل سفارشی یا مدل AI اختصاصی دارید، این تخصص ماست.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-primary mt-1 shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            </span>
+            <span class="text-foreground"><strong>کد پاک، امنیت بالا:</strong> به دلیل حضور محققین امنیت تهاجمی در تیم هسته، امنیت در تمام لایه‌ها نهادینه شده است.</span>
+          </li>
+        </ul>
+      </div>
+
+      {/* لینک‌های دعوت به اقدام */}
+      <div class="mt-16 pt-10 border-t border-border flex flex-col sm:flex-row gap-4">
+        <a href="/team" class="inline-flex h-12 items-center justify-center rounded-md bg-primary px-8 text-base font-medium text-primary-foreground transition-colors hover:bg-primary/90">
+          آشنایی با اعضای تیم
+        </a>
+        <a href="/contact" class="inline-flex h-12 items-center justify-center rounded-md border border-input bg-background px-8 text-base font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground">
+          درخواست مشاوره
+        </a>
+      </div>
+
+    </div>
+  </div>
+</MainLayout>
