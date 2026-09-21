@@ -1,0 +1,62 @@
+---
+// src/components/layout/Footer.astro
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="border-t border-border/40 bg-muted/20 mt-auto">
+  <div class="container mx-auto px-4 md:px-8 py-12 md:py-16">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-12">
+
+      {/* ستون اول: برند و معرفی */}
+      <div class="md:col-span-1">
+        <a href="/" class="inline-flex items-center gap-1 mb-4">
+          <span class="font-heading text-2xl font-bold text-foreground tracking-tight">
+            ویهان<span class="text-primary">.</span>
+          </span>
+        </a>
+        <p class="text-sm text-muted-foreground leading-relaxed">
+          سیستم‌های هوشمند برای مشکلات واقعی. ترکیب نادری از هوش مصنوعی کاربردی، امنیت شبکه، سیستم‌های نهفته و وب مدرن.
+        </p>
+      </div>
+
+      {/* ستون دوم: خدمات */}
+      <div>
+        <h3 class="font-bold text-foreground mb-4">تخصص‌های ما</h3>
+        <ul class="flex flex-col gap-3 text-sm text-muted-foreground">
+          <li><a href="/services#ai" class="hover:text-primary transition-colors">هوش مصنوعی و تحلیل داده</a></li>
+          <li><a href="/services#security" class="hover:text-primary transition-colors">امنیت و زیرساخت شبکه</a></li>
+          <li><a href="/services#embedded" class="hover:text-primary transition-colors">سیستم‌های Embedded و IoT</a></li>
+          <li><a href="/services#web" class="hover:text-primary transition-colors">توسعه وب و اتصال AI</a></li>
+        </ul>
+      </div>
+
+      {/* ستون سوم: دسترسی سریع */}
+      <div>
+        <h3 class="font-bold text-foreground mb-4">دسترسی سریع</h3>
+        <ul class="flex flex-col gap-3 text-sm text-muted-foreground">
+          <li><a href="/projects" class="hover:text-primary transition-colors">پروژه‌های واقعی (Case Studies)</a></li>
+          <li><a href="/team" class="hover:text-primary transition-colors">اعضای تیم</a></li>
+          <li><a href="/about" class="hover:text-primary transition-colors">درباره ویهان</a></li>
+          <li><a href="/contact" class="hover:text-primary transition-colors">درخواست مشاوره</a></li>
+        </ul>
+      </div>
+
+      {/* ستون چهارم: ارتباط */}
+      <div>
+        <h3 class="font-bold text-foreground mb-4">ارتباط با ما</h3>
+        <ul class="flex flex-col gap-3 text-sm text-muted-foreground">
+          <li><a href="mailto:hello@vihanco.ir" class="hover:text-primary transition-colors">hello@vihanco.ir</a></li>
+          <li>
+            <a href="https://github.com/vihanco" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors">گیت‌هاب (متن‌باز)</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-border/40 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-muted-foreground">
+      <p>© {currentYear} تیم فناوری ویهان. تمامی حقوق محفوظ است.</p>
+      <p dir="ltr" class="font-mono bg-muted px-2 py-1 rounded-md">Built with Astro & Tailwind</p>
+    </div>
+  </div>
+</footer>
