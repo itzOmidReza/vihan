@@ -2,48 +2,56 @@
 // src/components/home/Hero.astro
 ---
 
-<section class="relative overflow-hidden py-20 lg:py-32">
-  <div class="container mx-auto px-4 md:px-8">
-    <div class="flex flex-col items-start gap-8 max-w-4xl">
+<section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-background py-20">
 
-      {/* بج (Badge) بالای هیرو */}
-      <div class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-muted/30 px-4 py-1.5 text-sm font-medium text-muted-foreground backdrop-blur-sm">
-        <span class="flex h-2 w-2 rounded-full bg-primary"></span>
-        توسعه سیستم‌های اختصاصی، نه قالب‌های آماده
-      </div>
+  {/* لایه پس‌زمینه: پترن گرید و هاله درخشان */}
+  <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0 bg-grid-pattern opacity-40 dark:opacity-20"></div>
+    {/* هاله نوری متمرکز در مرکز-بالا */}
+    <div class="absolute left-1/2 top-0 -translate-x-1/2 w-[800px] h-[600px] bg-primary/20 dark:bg-primary/10 blur-[120px] rounded-full pointer-events-none"></div>
+  </div>
 
-      {/* عنوان اصلی */}
-      <h1 class="font-heading text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl leading-[1.3] lg:leading-[1.2]">
-        سیستم‌های هوشمند برای <br class="hidden md:block" />
-        <span class="text-primary">چالش‌های واقعی صنعت و زیرساخت.</span>
-      </h1>
+  <div class="container relative z-10 mx-auto px-4 md:px-8 text-center flex flex-col items-center">
 
-      {/* توضیحات */}
-      <p class="max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
-        یک ترکیب نادر از تخصص‌های عمیق زیر یک سقف. از پردازش تصویر و تشخیص آنومالی تا امنیت تهاجمی شبکه‌های صنعتی و توسعه کرنل لینوکس. بدون شعارهای اغراق‌آمیز، فقط مهندسی دقیق.
-      </p>
-
-      {/* دکمه‌های اقدام (CTA) */}
-      <div class="flex flex-col sm:flex-row gap-4 mt-4 w-full sm:w-auto">
-        <a
-          href="/contact"
-          class="inline-flex h-12 items-center justify-center rounded-md bg-primary px-8 text-base font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-        >
-          درخواست مشاوره فنی
-        </a>
-        <a
-          href="/projects"
-          class="inline-flex h-12 items-center justify-center rounded-md border border-border bg-transparent px-8 text-base font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-        >
-          بررسی پروژه‌های واقعی
-        </a>
-      </div>
-
+    {/* بج (Badge) شیشه‌ای با نشانگر چشمک‌زن */}
+    <div class="glass-panel inline-flex items-center gap-3 rounded-full px-5 py-2 text-sm font-medium text-foreground/80 mb-8 transition-transform hover:scale-105">
+      <span class="relative flex h-2.5 w-2.5">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+      </span>
+      توسعه سیستم‌های اختصاصی، نه قالب‌های آماده
     </div>
+
+    {/* عنوان اصلی با گرادیانت */}
+    <h1 class="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-[5rem] font-extrabold tracking-tight text-foreground mb-8 leading-[1.15] max-w-5xl">
+      سیستم‌های هوشمند برای <br class="hidden md:block" />
+      <span class="text-gradient-copper">چالش‌های واقعی صنعت.</span>
+    </h1>
+
+    {/* توضیحات */}
+    <p class="max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed mb-12">
+      یک ترکیب نادر از تخصص‌های عمیق زیر یک سقف. از پردازش تصویر و امنیت تهاجمی شبکه‌های صنعتی تا توسعه کرنل لینوکس. بدون شعارهای اغراق‌آمیز، فقط مهندسی دقیق.
+    </p>
+
+    {/* دکمه‌های اقدام (CTA) */}
+    <div class="flex flex-col sm:flex-row gap-5 w-full sm:w-auto">
+      <a
+        href="/contact"
+        class="glow-copper inline-flex h-14 items-center justify-center rounded-xl bg-primary px-8 text-base font-bold text-primary-foreground transition-all hover:bg-primary/90 hover:-translate-y-1"
+      >
+        درخواست مشاوره فنی
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 rotate-180"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+      </a>
+      <a
+        href="/projects"
+        class="glass-panel inline-flex h-14 items-center justify-center rounded-xl px-8 text-base font-bold text-foreground transition-all hover:bg-muted/50 hover:-translate-y-1"
+      >
+        بررسی پروژه‌های واقعی
+      </a>
+    </div>
+
   </div>
 
-  {/* افکت پس‌زمینه مینیمال (گرید کم‌رنگ به‌جای گرافیک‌های شلوغ) */}
-  <div class="absolute left-0 top-0 -z-10 h-full w-full md:w-1/2 opacity-20 pointer-events-none" aria-hidden="true">
-    <div class="absolute inset-0 bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:linear-gradient(to_right,white,transparent)]"></div>
-  </div>
+  {/* افکت تزئینی پایین هیرو برای اتصال نرم به بخش بعدی */}
+  <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-10 pointer-events-none"></div>
 </section>
