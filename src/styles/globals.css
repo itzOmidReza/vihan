@@ -1,0 +1,340 @@
+/* src/styles/global.css */
+/* سیستم طراحی ویهان — Astro + Tailwind v4 + shadcn/ui (RTL / فارسی) */
+
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ==========================================================================
+   فونت فارسی: Vazirmatn (فایل را در public/fonts/Vazirmatn-VF.woff2 بگذارید)
+   ========================================================================== */
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("/fonts/Vazirmatn-VF.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   توکن‌های Tailwind (رنگ‌ها، فونت‌ها، شعاع‌ها)
+   `inline` یعنی مقدار var() در زمان استفاده resolve شود، تا dark mode کار کند
+   ========================================================================== */
+@theme inline {
+  /* فونت‌ها */
+  --font-sans: "Vazirmatn", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-sans);
+  --font-mono: "Fira Code", "JetBrains Mono", ui-monospace, Consolas, monospace;
+
+  /* رنگ‌های برند ویهان (مستقیم به‌صورت bg-brand-copper و ... قابل استفاده) */
+  --color-brand-copper: #a35a1f;
+  --color-brand-ink: #1c1a17;
+  --color-brand-paper: #faf8f5;
+  --color-brand-teal: #0f6e63;
+  --color-brand-stone: #6b6459;
+
+  /* رنگ‌های سمانتیک shadcn */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* وضعیت‌ها (برای کامپوننت‌های Mistake / Challenge / Solution) */
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-info: var(--info);
+
+  /* رنگ هر مسیر آموزشی */
+  --color-track-html: var(--track-html);
+  --color-track-css: var(--track-css);
+  --color-track-js: var(--track-js);
+  --color-track: var(--track-accent);
+
+  /* نمودار */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* سایدبار */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* شعاع‌ها */
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* ==========================================================================
+   تم روشن (پیش‌فرض) — کاغذ گرم، جوهر تیره، مس و سبزآبی
+   ========================================================================== */
+:root {
+  --radius: 0.625rem;
+
+  --background: #faf8f5; /* brand-paper */
+  --foreground: #1c1a17; /* brand-ink */
+  --card: #ffffff;
+  --card-foreground: #1c1a17;
+  --popover: #ffffff;
+  --popover-foreground: #1c1a17;
+
+  --primary: #a35a1f; /* brand-copper */
+  --primary-foreground: #ffffff;
+  --secondary: #f0ece5;
+  --secondary-foreground: #1c1a17;
+  --muted: #f0ece5;
+  --muted-foreground: #6b6459; /* brand-stone */
+  --accent: #e2efec; /* سطح hover با رگه‌ی سبزآبی */
+  --accent-foreground: #0b4f47;
+  --destructive: #c23b2e;
+
+  --border: #e4dfd6;
+  --input: #e4dfd6;
+  --ring: #a35a1f;
+
+  /* وضعیت‌ها */
+  --success: #0f6e63; /* brand-teal */
+  --warning: #c23b2e;
+  --info: #2b6cb0;
+
+  /* مسیرهای آموزشی */
+  --track-html: #e44d26;
+  --track-css: #1572b6;
+  --track-js: #f7df1e;
+  --track-accent: var(--primary);
+
+  /* نمودار */
+  --chart-1: #a35a1f;
+  --chart-2: #0f6e63;
+  --chart-3: #6b6459;
+  --chart-4: #d08a4e;
+  --chart-5: #4a9a8f;
+
+  /* سایدبار */
+  --sidebar: #f4f0e9;
+  --sidebar-foreground: #1c1a17;
+  --sidebar-primary: #a35a1f;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e2efec;
+  --sidebar-accent-foreground: #0b4f47;
+  --sidebar-border: #e4dfd6;
+  --sidebar-ring: #a35a1f;
+}
+
+/* ==========================================================================
+   تم تیره — جوهر گرم به‌جای خاکستری خنثی
+   ========================================================================== */
+.dark {
+  --background: #171512;
+  --foreground: #f3efe8;
+  --card: #201d19;
+  --card-foreground: #f3efe8;
+  --popover: #201d19;
+  --popover-foreground: #f3efe8;
+
+  --primary: #d08a4e; /* مس روشن‌تر برای کنتراست روی تیره */
+  --primary-foreground: #1c1a17;
+  --secondary: #2a2621;
+  --secondary-foreground: #f3efe8;
+  --muted: #2a2621;
+  --muted-foreground: #a39b8e;
+  --accent: #1f3a36;
+  --accent-foreground: #bfe3dd;
+  --destructive: #ef6b5c;
+
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: #d08a4e;
+
+  --success: #3ecf8e;
+  --warning: #ff5d5d;
+  --info: #5aa9e6;
+
+  --track-accent: var(--primary);
+
+  --chart-1: #d08a4e;
+  --chart-2: #4a9a8f;
+  --chart-3: #a39b8e;
+  --chart-4: #a35a1f;
+  --chart-5: #7cc4b9;
+
+  --sidebar: #1c1a16;
+  --sidebar-foreground: #f3efe8;
+  --sidebar-primary: #d08a4e;
+  --sidebar-primary-foreground: #1c1a17;
+  --sidebar-accent: #1f3a36;
+  --sidebar-accent-foreground: #bfe3dd;
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: #d08a4e;
+}
+
+/* رنگ تاکیدی هر مسیر (با data-track روی body یا layout) */
+[data-track="html-css"] {
+  --track-accent: var(--track-html);
+}
+[data-track="javascript"] {
+  --track-accent: var(--track-js);
+}
+
+/* ==========================================================================
+   پایه‌ی سند: RTL + فونت فارسی
+   ========================================================================== */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply font-sans;
+    direction: rtl; /* پشتیبان؛ در layout حتماً <html lang="fa" dir="rtl"> بگذارید */
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    line-height: 1.8;
+  }
+
+  /* متن فارسی فاصله‌ی خط بیشتری می‌خواهد */
+  p,
+  li {
+    line-height: 1.9;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading font-bold text-foreground;
+    line-height: 1.5;
+    scroll-margin-top: 5rem; /* لینک‌های #id زیر هدر sticky گم نشوند */
+  }
+
+  a {
+    @apply text-primary;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--primary) 25%, transparent);
+  }
+}
+
+/* ==========================================================================
+   قانون طلایی: کد همیشه LTR بماند، حتی در صفحه‌ی RTL
+   ========================================================================== */
+@layer base {
+  code,
+  pre,
+  kbd,
+  samp,
+  .expressive-code,
+  .astro-code {
+    direction: ltr;
+    text-align: left;
+    font-family: var(--font-mono);
+    unicode-bidi: isolate;
+  }
+
+  pre {
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    overflow-x: auto;
+  }
+
+  /* اینلاین‌کد وسط جمله‌ی فارسی نشکند */
+  :not(pre) > code {
+    background-color: var(--muted);
+    border-radius: var(--radius-sm);
+    padding: 0.15em 0.4em;
+    font-size: 0.9em;
+  }
+}
+
+/* ==========================================================================
+   کامپوننت‌های مشترک
+   ========================================================================== */
+@layer components {
+  /* بج «به‌روزرسانی شد» */
+  .updated-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--success);
+    background-color: color-mix(in oklab, var(--success) 14%, transparent);
+    border-radius: 999px;
+    padding: 0.15rem 0.6rem;
+  }
+}
+
+/* ==========================================================================
+   اسکرول‌بار (هماهنگ با تم)
+   ========================================================================== */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
+
+/* احترام به تنظیم کاهش حرکت */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
