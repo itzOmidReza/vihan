@@ -1,4 +1,5 @@
 ---
+// src/pages/team/index.astro
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import MainLayout from '../../layouts/main.astro';
@@ -7,52 +8,68 @@ const allTeam = await getCollection('team');
 ---
 
 <MainLayout
-  title="تیم ما"
+  title="هسته مهندسی ویهان"
   description="آشنایی با متخصصین و پژوهشگران تیم ویهان در حوزه‌های هوش مصنوعی، امنیت شبکه و سیستم‌های نهفته."
 >
-  <section class="py-16 md:py-24">
-    <div class="container mx-auto px-4 md:px-8">
+  <div class="relative bg-background overflow-hidden min-h-screen">
 
-      <div class="mb-16 max-w-2xl">
-        <h1 class="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6">متخصصین واقعی،<br/><span class="text-primary">راه‌حل‌های مهندسی.</span></h1>
+    {/* هدر صفحه */}
+    <header class="relative pt-32 pb-20 md:pt-40 md:pb-24 overflow-hidden border-b border-border/20">
+      <div class="absolute inset-0 bg-grid-pattern opacity-30 dark:opacity-10"></div>
+      <div class="absolute top-0 left-1/4 w-[600px] h-[300px] bg-primary/10 blur-[100px] rounded-full pointer-events-none"></div>
+
+      <div class="container mx-auto px-4 md:px-8 relative z-10 text-center max-w-3xl">
+        <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl font-extrabold text-foreground mb-6 tracking-tight">
+          مهندسین <span class="text-gradient-copper">پشت پرده</span>
+        </h1>
         <p class="text-lg text-muted-foreground leading-relaxed">
-          ما یک تیم از توسعه‌دهندگان و پژوهشگران (PhD) هستیم که دانش آکادمیک را با تجربه مهندسی سطح پایین ترکیب کرده‌ایم.
+          ما یک تیم از توسعه‌دهندگان و پژوهشگران (PhD) هستیم که دانش آکادمیک را با تجربه سخت‌افزاری و نرم‌افزاری سطح پایین ترکیب کرده‌ایم.
         </p>
       </div>
+    </header>
 
+    {/* گرید اعضای تیم */}
+    <section class="container mx-auto px-4 md:px-8 py-24 relative z-10">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {allTeam.map((member: CollectionEntry<'team'>) => (
-          <a href={`/team/${member.id}`} class="group flex flex-col p-6 md:p-8 rounded-xl border border-border bg-card shadow-sm hover:shadow-md hover:border-primary/50 transition-all">
+          <a href={`/team/${member.id}`} class="group glass-panel rounded-3xl p-8 flex flex-col border-border/40 hover:border-primary/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_-15px_rgba(198,108,49,0.15)] relative overflow-hidden">
 
-            <div class="mb-6 pb-6 border-b border-border/50">
-              <h2 class="font-heading text-2xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
-                {member.data.name}
-              </h2>
-              <p class="text-primary font-medium text-sm">
-                {member.data.role}
-              </p>
+            <div class="absolute -top-10 -right-10 w-32 h-32 bg-primary/10 blur-[40px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+
+            <div class="flex items-center gap-6 mb-8 border-b border-border/30 pb-6 relative z-10">
+              <div class="w-16 h-16 shrink-0 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 flex items-center justify-center group-hover:scale-110 group-hover:rotate-6 transition-transform duration-500 shadow-inner">
+                <span class="text-2xl font-heading font-extrabold text-primary">{member.data.name.charAt(0)}</span>
+              </div>
+              <div>
+                <h2 class="font-heading text-2xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
+                  {member.data.name}
+                </h2>
+                <p class="text-primary font-medium text-sm">
+                  {member.data.role}
+                </p>
+              </div>
             </div>
 
-            <div class="mb-6 flex-1">
-              <span class="text-sm font-bold text-foreground block mb-3">حوزه‌های تمرکز:</span>
+            <div class="mb-8 flex-1 relative z-10">
+              <span class="text-xs font-bold uppercase tracking-wider text-muted-foreground block mb-4">حوزه‌های تمرکز فنی:</span>
               <div class="flex flex-wrap gap-2">
                 {member.data.specialties.map((specialty: string) => (
-                  <span class="inline-flex items-center px-2.5 py-1 rounded-md bg-secondary/10 text-secondary text-xs font-medium border border-secondary/20">
+                  <span class="inline-flex items-center px-3 py-1.5 rounded-lg bg-secondary/40 backdrop-blur-md text-foreground/80 text-xs font-medium border border-border/50">
                     {specialty}
                   </span>
                 ))}
               </div>
             </div>
 
-            <div class="mt-auto pt-4 border-t border-border/40 flex items-center text-sm font-medium text-foreground group-hover:text-primary transition-colors">
-              مشاهده پروفایل کامل
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="rotate-180 mr-2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+            <div class="mt-auto pt-5 border-t border-border/30 flex items-center text-sm font-bold text-foreground group-hover:text-primary transition-colors relative z-10">
+              بررسی سوابق تخصصی
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="rotate-180 mr-2 group-hover:-translate-x-1 transition-transform"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
             </div>
 
           </a>
         ))}
       </div>
+    </section>
 
-    </div>
-  </section>
+  </div>
 </MainLayout>
