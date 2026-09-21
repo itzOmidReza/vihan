@@ -1,17 +1,20 @@
 ---
-import Layout from "@/layouts/main.astro"
-import { Button } from "@/components/ui/button"
+// src/pages/index.astro
+import MainLayout from '../layouts/main.astro';
+import Hero from '../components/home/Hero.astro';
+import Services from '../components/home/Services.astro';
+import Projects from '../components/home/Projects.astro';
+import Team from '../components/home/Team.astro';
+import Cta from '../components/home/Cta.astro';
 ---
 
-<Layout>
-  <div class="flex min-h-svh p-6">
-    <div class="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
-      <div>
-        <h1 class="font-medium">Project ready!</h1>
-        <p>You may now add components and start building.</p>
-        <p>We've already added the button component for you.</p>
-        <Button client:load className="mt-2">Button</Button>
-      </div>
-    </div>
-  </div>
-</Layout>
+<MainLayout
+  title="صفحه اصلی"
+  description="ویهان - سیستم‌های هوشمند برای مشکلات واقعی. خدمات تخصصی هوش مصنوعی، امنیت شبکه، امبدد سیستم و توسعه وب."
+>
+  <Hero />
+  <Services />
+  <Projects />
+  <Team />
+  <Cta />
+</MainLayout>

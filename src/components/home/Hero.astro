@@ -1,0 +1,49 @@
+---
+// src/components/home/Hero.astro
+---
+
+<section class="relative overflow-hidden py-20 lg:py-32">
+  <div class="container mx-auto px-4 md:px-8">
+    <div class="flex flex-col items-start gap-8 max-w-4xl">
+
+      {/* بج (Badge) بالای هیرو */}
+      <div class="inline-flex items-center gap-2 rounded-full border border-border/60 bg-muted/30 px-4 py-1.5 text-sm font-medium text-muted-foreground backdrop-blur-sm">
+        <span class="flex h-2 w-2 rounded-full bg-primary"></span>
+        توسعه سیستم‌های اختصاصی، نه قالب‌های آماده
+      </div>
+
+      {/* عنوان اصلی */}
+      <h1 class="font-heading text-4xl font-bold tracking-tight text-foreground sm:text-5xl md:text-6xl leading-[1.3] lg:leading-[1.2]">
+        سیستم‌های هوشمند برای <br class="hidden md:block" />
+        <span class="text-primary">چالش‌های واقعی صنعت و زیرساخت.</span>
+      </h1>
+
+      {/* توضیحات */}
+      <p class="max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
+        یک ترکیب نادر از تخصص‌های عمیق زیر یک سقف. از پردازش تصویر و تشخیص آنومالی تا امنیت تهاجمی شبکه‌های صنعتی و توسعه کرنل لینوکس. بدون شعارهای اغراق‌آمیز، فقط مهندسی دقیق.
+      </p>
+
+      {/* دکمه‌های اقدام (CTA) */}
+      <div class="flex flex-col sm:flex-row gap-4 mt-4 w-full sm:w-auto">
+        <a
+          href="/contact"
+          class="inline-flex h-12 items-center justify-center rounded-md bg-primary px-8 text-base font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+        >
+          درخواست مشاوره فنی
+        </a>
+        <a
+          href="/projects"
+          class="inline-flex h-12 items-center justify-center rounded-md border border-border bg-transparent px-8 text-base font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+        >
+          بررسی پروژه‌های واقعی
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  {/* افکت پس‌زمینه مینیمال (گرید کم‌رنگ به‌جای گرافیک‌های شلوغ) */}
+  <div class="absolute left-0 top-0 -z-10 h-full w-full md:w-1/2 opacity-20 pointer-events-none" aria-hidden="true">
+    <div class="absolute inset-0 bg-[linear-gradient(to_right,var(--color-border)_1px,transparent_1px),linear-gradient(to_bottom,var(--color-border)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:linear-gradient(to_right,white,transparent)]"></div>
+  </div>
+</section>

@@ -1,0 +1,63 @@
+---
+// src/components/home/Services.astro
+
+const services = [
+  {
+    id: "ai",
+    title: "هوش مصنوعی و تحلیل داده",
+    description: "توسعه مدل‌های بینایی کامپیوتر، پردازش زبان طبیعی (NLP فارسی)، پیش‌بینی سری زمانی و تشخیص آنومالی صنعتی.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.29 7 12 12 20.71 7"></polyline><line x1="12" y1="22" x2="12" y2="12"></line></svg>`,
+  },
+  {
+    id: "security",
+    title: "امنیت شبکه و زیرساخت",
+    description: "تست نفوذ و امنیت تهاجمی، پیاده‌سازی سیستم‌های تشخیص نفوذ (IDS)، پایش هوشمند شبکه و پیکربندی سازمانی MikroTik.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path><path d="m9 12 2 2 4-4"></path></svg>`,
+  },
+  {
+    id: "embedded",
+    title: "سیستم‌های Embedded و IoT",
+    description: "توسعه لینوکس تعبیه‌شده (Yocto)، برنامه‌نویسی بوت‌لودر (U-Boot)، توسعه کرنل و یکپارچه‌سازی سطح پایین سخت‌افزار.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"></rect><rect width="6" height="6" x="9" y="9" rx="1"></rect><path d="M15 2v2"></path><path d="M15 20v2"></path><path d="M2 15h2"></path><path d="M2 9h2"></path><path d="M20 15h2"></path><path d="M20 9h2"></path><path d="M9 2v2"></path><path d="M9 20v2"></path></svg>`,
+  },
+  {
+    id: "web",
+    title: "توسعه وب و اتصال AI",
+    description: "ساخت اپلیکیشن‌های Full-Stack (با Astro و Nuxt/NestJS) و اتصال ایمن مدل‌های هوش مصنوعی به رابط کاربری تحت وب.",
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>`,
+  }
+];
+---
+
+<section class="py-16 md:py-24 bg-muted/30">
+  <div class="container mx-auto px-4 md:px-8">
+
+    <div class="mb-12 md:mb-16 max-w-2xl">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">تخصص‌های اصلی ما</h2>
+      <p class="text-lg text-muted-foreground">
+        ما همه‌کاره نیستیم. تمرکز ما روی چهار حوزه مهندسی است که در آن‌ها تجربه اثبات‌شده و دانش تحقیقاتی عمیقی داریم.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+      {services.map((service) => (
+        <div class="group relative overflow-hidden rounded-xl border border-border bg-card p-6 md:p-8 text-card-foreground shadow-sm transition-all hover:shadow-md hover:border-primary/30">
+
+          <div class="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground" set:html={service.icon} />
+
+          <h3 class="font-heading text-xl font-bold mb-3 text-foreground">{service.title}</h3>
+
+          <p class="text-muted-foreground leading-relaxed mb-6">
+            {service.description}
+          </p>
+
+          <a href={`/services#${service.id}`} class="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline underline-offset-4">
+            جزئیات بیشتر
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="rotate-180"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+          </a>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

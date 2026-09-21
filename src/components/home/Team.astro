@@ -1,0 +1,56 @@
+---
+// src/components/home/Team.astro
+---
+
+<section class="py-16 md:py-24 bg-muted/30 border-y border-border/40">
+  <div class="container mx-auto px-4 md:px-8">
+    <div class="flex flex-col lg:flex-row items-center gap-12">
+
+      {/* متن و لیست تخصص‌ها */}
+      <div class="lg:w-1/2 space-y-6">
+        <h2 class="font-heading text-3xl md:text-4xl font-bold text-foreground">
+          تیم ما؛ مزیت رقابتی ما
+        </h2>
+        <p class="text-lg text-muted-foreground leading-relaxed">
+          ویهان یک آژانس با قالب‌های آماده نیست. هسته‌ی اصلی ما از ترکیب تخصص‌های تحقیقاتی و مهندسی سطح پایین تشکیل شده که در کنار هم، راه‌حل‌های جامعی می‌سازند:
+        </p>
+        <ul class="space-y-4 mt-6">
+          <li class="flex items-start gap-3 text-foreground">
+            <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary font-bold">✓</span>
+            <span>متخصصین بینایی ماشین، NLP و تحلیل داده</span>
+          </li>
+          <li class="flex items-start gap-3 text-foreground">
+            <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary font-bold">✓</span>
+            <span>محققین امنیت تهاجمی و زیرساخت شبکه (دکترا)</span>
+          </li>
+          <li class="flex items-start gap-3 text-foreground">
+            <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary font-bold">✓</span>
+            <span>توسعه‌دهندگان سیستم‌های نهفته و لینوکس (Yocto)</span>
+          </li>
+          <li class="flex items-start gap-3 text-foreground">
+            <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/20 text-primary font-bold">✓</span>
+            <span>مهندسین وب برای اتصال یکپارچه و ایمن مدل‌ها</span>
+          </li>
+        </ul>
+        <div class="pt-6">
+          <a href="/team" class="inline-flex items-center justify-center rounded-md bg-foreground px-6 py-3 text-sm font-medium text-background transition-colors hover:bg-foreground/90">
+            آشنایی با ۶ عضو اصلی و سوابق
+          </a>
+        </div>
+      </div>
+
+      {/* نمای گرافیکی مینیمال از تیم */}
+      <div class="lg:w-1/2 w-full grid grid-cols-2 gap-4">
+        <div class="bg-card border border-border p-8 rounded-xl flex flex-col justify-center items-center text-center shadow-sm">
+          <span class="text-5xl font-heading font-bold text-primary mb-3">۶</span>
+          <span class="text-sm font-medium text-muted-foreground">متخصص ارشد و محقق</span>
+        </div>
+        <div class="bg-card border border-border p-8 rounded-xl flex flex-col justify-center items-center text-center shadow-sm mt-8">
+          <span class="text-5xl font-heading font-bold text-primary mb-3">۴</span>
+          <span class="text-sm font-medium text-muted-foreground">حوزه‌ی تخصصی مکمل</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

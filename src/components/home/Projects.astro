@@ -1,0 +1,75 @@
+---
+// src/components/home/Projects.astro
+
+const projects = [
+  {
+    id: "greenhouse-ai",
+    category: "هوش مصنوعی و اینترنت اشیا",
+    title: "کنترل هوشمند اقلیم سیستم‌های کشاورزی",
+    problem: "نوسانات شدید دما و مصرف بالای انرژی در سیستم‌های سنتی گلخانه‌ای.",
+    solution: "پیاده‌سازی مدل‌های پیش‌بینی سری زمانی و اتصال مستقیم آن‌ها به سنسورهای IoT برای کنترل خودکار.",
+    result: "کاهش ۴۰٪ نوسان دما و بهینه‌سازی چشمگیر مصرف انرژی.",
+    link: "/projects/greenhouse-ai"
+  },
+  {
+    id: "industrial-ids",
+    category: "امنیت شبکه",
+    title: "سیستم پایش و تشخیص نفوذ صنعتی (IDS)",
+    problem: "آسیب‌پذیری زیرساخت‌های حساس در برابر آنومالی‌ها و حملات سایبری ناشناخته.",
+    solution: "توسعه IDS اختصاصی مبتنی بر یادگیری ماشین برای تحلیل ترافیک شبکه در لحظه.",
+    result: "کاهش ۲۵٪ downtime و فیلتر دقیق هشدارهای کاذب (False Positives).",
+    link: "/projects/industrial-ids"
+  }
+];
+---
+
+<section class="py-16 md:py-24">
+  <div class="container mx-auto px-4 md:px-8">
+
+    {/* هدر بخش */}
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 md:mb-16">
+      <div class="max-w-2xl">
+        <h2 class="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">پروژه‌های واقعی، نتایج ملموس</h2>
+        <p class="text-lg text-muted-foreground">
+          ما به جای آمارهای ساختگی، به دستاوردهای مهندسی خود تکیه می‌کنیم. در اینجا چند نمونه از چالش‌هایی که برای آن‌ها راه‌حل فنی توسعه داده‌ایم را مشاهده می‌کنید.
+        </p>
+      </div>
+      <a href="/projects" class="inline-flex shrink-0 items-center gap-2 text-sm font-medium text-foreground border border-border px-5 py-2.5 rounded-md hover:bg-muted transition-colors">
+        مشاهده همه پروژه‌ها
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="rotate-180"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+      </a>
+    </div>
+
+    {/* لیست پروژه‌ها */}
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      {projects.map((project) => (
+        <a href={project.link} class="group block p-6 md:p-8 rounded-xl border border-border bg-card hover:border-primary/40 transition-colors shadow-sm">
+
+          <div class="mb-4">
+            <span class="inline-block px-3 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-bold mb-3">
+              {project.category}
+            </span>
+            <h3 class="font-heading text-2xl font-bold text-foreground group-hover:text-primary transition-colors">{project.title}</h3>
+          </div>
+
+          <div class="space-y-4 mt-6">
+            <div>
+              <span class="text-sm font-bold text-foreground block mb-1">مسئله:</span>
+              <p class="text-muted-foreground text-sm leading-relaxed">{project.problem}</p>
+            </div>
+            <div>
+              <span class="text-sm font-bold text-foreground block mb-1">راه‌حل ویهان:</span>
+              <p class="text-muted-foreground text-sm leading-relaxed">{project.solution}</p>
+            </div>
+            <div class="pt-4 border-t border-border/50">
+              <span class="text-sm font-bold text-foreground block mb-1">نتیجه:</span>
+              <p class="text-primary font-medium text-sm leading-relaxed">{project.result}</p>
+            </div>
+          </div>
+
+        </a>
+      ))}
+    </div>
+
+  </div>
+</section>

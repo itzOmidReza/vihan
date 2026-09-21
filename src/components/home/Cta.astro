@@ -1,0 +1,29 @@
+---
+// src/components/home/Cta.astro
+---
+
+<section class="py-20 md:py-32">
+  <div class="container mx-auto px-4 md:px-8">
+    <div class="relative overflow-hidden rounded-3xl bg-primary px-6 py-16 text-center text-primary-foreground shadow-lg md:px-12 lg:px-16">
+
+      <div class="relative z-10">
+        <h2 class="mx-auto max-w-2xl font-heading text-3xl font-bold md:text-4xl leading-snug">
+          چالش فنی پیچیده‌ای دارید؟<br />ما برای حل آن آماده‌ایم.
+        </h2>
+        <p class="mx-auto mt-6 max-w-xl text-primary-foreground/90 text-lg leading-relaxed">
+          بدون وعده‌های توخالی؛ فرم درخواست مشاوره را پر کنید تا مستقیماً با تیم فنی درباره معماری و راهکار پروژه شما صحبت کنیم.
+        </p>
+        <div class="mt-10 flex justify-center">
+          <a href="/contact" class="inline-flex h-12 items-center justify-center rounded-md bg-background px-8 text-base font-bold text-foreground transition-colors hover:bg-muted shadow-sm">
+            درخواست مشاوره فنی
+          </a>
+        </div>
+      </div>
+
+      {/* افکت پس‌زمینه کارت CTA */}
+      <div class="absolute -right-20 -top-20 -z-0 h-64 w-64 rounded-full bg-white/10 blur-3xl"></div>
+      <div class="absolute -bottom-20 -left-20 -z-0 h-64 w-64 rounded-full bg-black/10 blur-3xl"></div>
+
+    </div>
+  </div>
+</section>
