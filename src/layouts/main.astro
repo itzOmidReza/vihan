@@ -4,6 +4,9 @@ import '@fontsource/vazirmatn/700.css';
 import '@fontsource/vazirmatn/900.css';
 import '../styles/globals.css';
 
+// ایمپورت فایل Astro به‌جای فایل React
+import Header from '../components/layout/Header.astro';
+
 interface Props {
 	title: string;
     description?: string;
@@ -22,7 +25,13 @@ const { title, description = "سیستم‌های هوشمند برای مشکل
 		<meta name="generator" content={Astro.generator} />
 		<title>{title} | ویهان</title>
 	</head>
-	<body class="min-h-screen selection:bg-brand-copper selection:text-white">
-		<slot />
+	<body class="min-h-screen flex flex-col selection:bg-brand-copper selection:text-white">
+
+        {/* فراخوانی کامپوننت هدر */}
+		<Header />
+
+        <main class="flex-1">
+            <slot />
+        </main>
 	</body>
 </html>

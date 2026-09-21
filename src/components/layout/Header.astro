@@ -1,0 +1,105 @@
+---
+// src/components/layout/Header.astro
+
+const navLinks = [
+  { name: "خدمات", href: "/services" },
+  { name: "پروژه‌ها", href: "/projects" },
+  { name: "تیم ما", href: "/team" },
+  { name: "درباره ما", href: "/about" },
+];
+---
+
+<header class="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-md">
+  <div class="container mx-auto flex h-16 items-center justify-between px-4 md:px-8">
+
+    {/* لوگو */}
+    <a href="/" class="flex items-center gap-1">
+      <span class="font-heading text-2xl font-bold text-foreground tracking-tight">
+        ویهان<span class="text-primary">.</span>
+      </span>
+    </a>
+
+    {/* منوی دسکتاپ */}
+    <nav class="hidden md:flex items-center gap-8">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+        >
+          {link.name}
+        </a>
+      ))}
+    </nav>
+
+    {/* دکمه مشاوره (دسکتاپ) و دکمه منوی موبایل */}
+    <div class="flex items-center gap-4">
+      <div class="hidden md:block">
+        <a
+          href="/contact"
+          class="inline-flex h-10 items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+        >
+          درخواست مشاوره
+        </a>
+      </div>
+
+      {/* دکمه همبرگری موبایل */}
+      <button
+        id="mobile-menu-btn"
+        class="inline-flex items-center justify-center rounded-md p-2 text-foreground transition-colors hover:bg-accent hover:text-accent-foreground md:hidden"
+        aria-label="Toggle Menu"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" x2="20" y1="12" y2="12"></line>
+          <line x1="4" x2="20" y1="6" y2="6"></line>
+          <line x1="4" x2="20" y1="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  {/* محتوای منوی موبایل (حالت پیش‌فرض مخفی) */}
+  <div
+    id="mobile-menu"
+    class="absolute inset-x-0 top-16 hidden flex-col border-b border-border/40 bg-background/95 p-6 shadow-lg backdrop-blur supports-backdrop-filter:bg-background/80 md:hidden"
+  >
+    <div class="flex flex-col gap-6">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class="mobile-link text-lg font-medium text-muted-foreground transition-colors hover:text-primary"
+        >
+          {link.name}
+        </a>
+      ))}
+      <div class="mt-4 border-t border-border pt-6">
+        <a
+          href="/contact"
+          class="inline-flex h-11 w-full items-center justify-center rounded-md bg-primary px-8 text-base font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+        >
+          درخواست مشاوره
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  // اسکریپت سبک Vanilla JS برای مدیریت باز و بسته شدن منو
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const links = document.querySelectorAll('.mobile-link');
+
+  if (btn && menu) {
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+      menu.classList.toggle('flex');
+    });
+
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.add('hidden');
+        menu.classList.remove('flex');
+      });
+    });
+  }
+</script>
