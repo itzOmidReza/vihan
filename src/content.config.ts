@@ -1,8 +1,10 @@
-// src/content/config.ts
+// src/content.config.ts
 import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
 
 const projectsCollection = defineCollection({
-  type: 'content',
+  // تعیین لودر برای خواندن فایل‌های مارک‌داون از مسیر پروژه‌ها
+  loader: glob({ pattern: "**/*.md", base: "./src/content/projects" }),
   schema: z.object({
     title: z.string(),
     category: z.enum(['هوش مصنوعی و داده', 'امنیت شبکه', 'سیستم‌های Embedded', 'توسعه وب']),
@@ -15,7 +17,8 @@ const projectsCollection = defineCollection({
 });
 
 const teamCollection = defineCollection({
-  type: 'content',
+  // تعیین لودر برای خواندن فایل‌های مارک‌داون از مسیر تیم
+  loader: glob({ pattern: "**/*.md", base: "./src/content/team" }),
   schema: z.object({
     name: z.string(),
     role: z.string(),
@@ -26,6 +29,6 @@ const teamCollection = defineCollection({
 });
 
 export const collections = {
-  'projects': projectsCollection,
-  'team': teamCollection,
+  projects: projectsCollection,
+  team: teamCollection,
 };
