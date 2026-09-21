@@ -1,5 +1,6 @@
 /* src/styles/global.css */
 /* سیستم طراحی ویهان — Astro + Tailwind v4 + shadcn/ui (RTL / فارسی) */
+/* رنگ برند: #831C91 (تم روشن) و #d98be8 (تم تیره). بقیه‌ی رابط خنثی است. */
 
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -8,7 +9,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ==========================================================================
-   فونت فارسی: Vazirmatn (فایل را در public/fonts/Vazirmatn-VF.woff2 بگذارید)
+   فونت فارسی: Vazirmatn (فایل: public/fonts/Vazirmatn-VF.woff2)
    ========================================================================== */
 @font-face {
   font-family: "Vazirmatn";
@@ -19,8 +20,7 @@
 }
 
 /* ==========================================================================
-   توکن‌های Tailwind (رنگ‌ها، فونت‌ها، شعاع‌ها)
-   `inline` یعنی مقدار var() در زمان استفاده resolve شود، تا dark mode کار کند
+   توکن‌های Tailwind
    ========================================================================== */
 @theme inline {
   /* فونت‌ها */
@@ -28,12 +28,9 @@
   --font-heading: var(--font-sans);
   --font-mono: "Fira Code", "JetBrains Mono", ui-monospace, Consolas, monospace;
 
-  /* رنگ‌های برند ویهان (مستقیم به‌صورت bg-brand-copper و ... قابل استفاده) */
-  --color-brand-copper: #a35a1f;
-  --color-brand-ink: #1c1a17;
-  --color-brand-paper: #faf8f5;
-  --color-brand-teal: #0f6e63;
-  --color-brand-stone: #6b6459;
+  /* رنگ‌های برند (bg-brand، text-brand-light و ...) */
+  --color-brand: #831c91;
+  --color-brand-light: #d98be8;
 
   /* رنگ‌های سمانتیک shadcn */
   --color-background: var(--background);
@@ -55,12 +52,12 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  /* وضعیت‌ها (برای کامپوننت‌های Mistake / Challenge / Solution) */
+  /* وضعیت‌ها (Mistake / Challenge / Solution) */
   --color-success: var(--success);
   --color-warning: var(--warning);
   --color-info: var(--info);
 
-  /* رنگ هر مسیر آموزشی */
+  /* رنگ مسیرهای آموزشی */
   --color-track-html: var(--track-html);
   --color-track-css: var(--track-css);
   --color-track-js: var(--track-js);
@@ -94,36 +91,36 @@
 }
 
 /* ==========================================================================
-   تم روشن (پیش‌فرض) — کاغذ گرم، جوهر تیره، مس و سبزآبی
+   تم روشن (پیش‌فرض) — رابط خنثی، رنگ برند فقط روی primary
    ========================================================================== */
 :root {
   --radius: 0.625rem;
 
-  --background: #faf8f5; /* brand-paper */
-  --foreground: #1c1a17; /* brand-ink */
+  --background: #ffffff;
+  --foreground: #18181b;
   --card: #ffffff;
-  --card-foreground: #1c1a17;
+  --card-foreground: #18181b;
   --popover: #ffffff;
-  --popover-foreground: #1c1a17;
+  --popover-foreground: #18181b;
 
-  --primary: #a35a1f; /* brand-copper */
+  --primary: #831c91; /* رنگ برند */
   --primary-foreground: #ffffff;
-  --secondary: #f0ece5;
-  --secondary-foreground: #1c1a17;
-  --muted: #f0ece5;
-  --muted-foreground: #6b6459; /* brand-stone */
-  --accent: #e2efec; /* سطح hover با رگه‌ی سبزآبی */
-  --accent-foreground: #0b4f47;
-  --destructive: #c23b2e;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #18181b;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  --accent: #f7eef9; /* سطح hover با رگه‌ی خیلی کم‌رنگ برند */
+  --accent-foreground: #4a0f54;
+  --destructive: #dc2626;
 
-  --border: #e4dfd6;
-  --input: #e4dfd6;
-  --ring: #a35a1f;
+  --border: #e4e4e7;
+  --input: #e4e4e7;
+  --ring: #831c91;
 
   /* وضعیت‌ها */
-  --success: #0f6e63; /* brand-teal */
-  --warning: #c23b2e;
-  --info: #2b6cb0;
+  --success: #15803d;
+  --warning: #dc2626;
+  --info: #2563eb;
 
   /* مسیرهای آموزشی */
   --track-html: #e44d26;
@@ -131,69 +128,69 @@
   --track-js: #f7df1e;
   --track-accent: var(--primary);
 
-  /* نمودار */
-  --chart-1: #a35a1f;
-  --chart-2: #0f6e63;
-  --chart-3: #6b6459;
-  --chart-4: #d08a4e;
-  --chart-5: #4a9a8f;
+  /* نمودار (درجه‌بندی برند) */
+  --chart-1: #831c91;
+  --chart-2: #a94bb8;
+  --chart-3: #c987d4;
+  --chart-4: #71717a;
+  --chart-5: #a1a1aa;
 
   /* سایدبار */
-  --sidebar: #f4f0e9;
-  --sidebar-foreground: #1c1a17;
-  --sidebar-primary: #a35a1f;
+  --sidebar: #fafafa;
+  --sidebar-foreground: #18181b;
+  --sidebar-primary: #831c91;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #e2efec;
-  --sidebar-accent-foreground: #0b4f47;
-  --sidebar-border: #e4dfd6;
-  --sidebar-ring: #a35a1f;
+  --sidebar-accent: #f7eef9;
+  --sidebar-accent-foreground: #4a0f54;
+  --sidebar-border: #e4e4e7;
+  --sidebar-ring: #831c91;
 }
 
 /* ==========================================================================
-   تم تیره — جوهر گرم به‌جای خاکستری خنثی
+   تم تیره — نسخه‌ی روشن‌تر برند برای کنتراست کافی
    ========================================================================== */
 .dark {
-  --background: #171512;
-  --foreground: #f3efe8;
-  --card: #201d19;
-  --card-foreground: #f3efe8;
-  --popover: #201d19;
-  --popover-foreground: #f3efe8;
+  --background: #0f0f12;
+  --foreground: #f4f4f5;
+  --card: #17171c;
+  --card-foreground: #f4f4f5;
+  --popover: #17171c;
+  --popover-foreground: #f4f4f5;
 
-  --primary: #d08a4e; /* مس روشن‌تر برای کنتراست روی تیره */
-  --primary-foreground: #1c1a17;
-  --secondary: #2a2621;
-  --secondary-foreground: #f3efe8;
-  --muted: #2a2621;
-  --muted-foreground: #a39b8e;
-  --accent: #1f3a36;
-  --accent-foreground: #bfe3dd;
-  --destructive: #ef6b5c;
+  --primary: #d98be8; /* رنگ برند در تم تیره */
+  --primary-foreground: #1a0a1e;
+  --secondary: #23232a;
+  --secondary-foreground: #f4f4f5;
+  --muted: #23232a;
+  --muted-foreground: #a1a1aa;
+  --accent: #2a1630;
+  --accent-foreground: #f0d0f7;
+  --destructive: #f87171;
 
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: #d08a4e;
+  --ring: #d98be8;
 
   --success: #3ecf8e;
-  --warning: #ff5d5d;
+  --warning: #ff6b6b;
   --info: #5aa9e6;
 
   --track-accent: var(--primary);
 
-  --chart-1: #d08a4e;
-  --chart-2: #4a9a8f;
-  --chart-3: #a39b8e;
-  --chart-4: #a35a1f;
-  --chart-5: #7cc4b9;
+  --chart-1: #d98be8;
+  --chart-2: #b66bc6;
+  --chart-3: #8f4a9e;
+  --chart-4: #a1a1aa;
+  --chart-5: #71717a;
 
-  --sidebar: #1c1a16;
-  --sidebar-foreground: #f3efe8;
-  --sidebar-primary: #d08a4e;
-  --sidebar-primary-foreground: #1c1a17;
-  --sidebar-accent: #1f3a36;
-  --sidebar-accent-foreground: #bfe3dd;
+  --sidebar: #131317;
+  --sidebar-foreground: #f4f4f5;
+  --sidebar-primary: #d98be8;
+  --sidebar-primary-foreground: #1a0a1e;
+  --sidebar-accent: #2a1630;
+  --sidebar-accent-foreground: #f0d0f7;
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: #d08a4e;
+  --sidebar-ring: #d98be8;
 }
 
 /* رنگ تاکیدی هر مسیر (با data-track روی body یا layout) */
@@ -223,7 +220,6 @@
     line-height: 1.8;
   }
 
-  /* متن فارسی فاصله‌ی خط بیشتری می‌خواهد */
   p,
   li {
     line-height: 1.9;
@@ -235,7 +231,7 @@
   h4 {
     @apply font-heading font-bold text-foreground;
     line-height: 1.5;
-    scroll-margin-top: 5rem; /* لینک‌های #id زیر هدر sticky گم نشوند */
+    scroll-margin-top: 5rem;
   }
 
   a {
@@ -258,7 +254,7 @@
 }
 
 /* ==========================================================================
-   قانون طلایی: کد همیشه LTR بماند، حتی در صفحه‌ی RTL
+   قانون طلایی: کد همیشه LTR بماند
    ========================================================================== */
 @layer base {
   code,
@@ -281,7 +277,6 @@
     overflow-x: auto;
   }
 
-  /* اینلاین‌کد وسط جمله‌ی فارسی نشکند */
   :not(pre) > code {
     background-color: var(--muted);
     border-radius: var(--radius-sm);
@@ -294,7 +289,6 @@
    کامپوننت‌های مشترک
    ========================================================================== */
 @layer components {
-  /* بج «به‌روزرسانی شد» */
   .updated-badge {
     display: inline-flex;
     align-items: center;
@@ -309,7 +303,7 @@
 }
 
 /* ==========================================================================
-   اسکرول‌بار (هماهنگ با تم)
+   اسکرول‌بار و کاهش حرکت
    ========================================================================== */
 ::-webkit-scrollbar {
   width: 10px;
@@ -326,7 +320,6 @@
   background: var(--muted-foreground);
 }
 
-/* احترام به تنظیم کاهش حرکت */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
