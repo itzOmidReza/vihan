@@ -2,8 +2,8 @@
 // src/components/home/Projects.astro
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
+import { homeProjectsData } from '../../data/home';
 
-// خواندن پروژه‌ها و انتخاب ۴ مورد اول برای صفحه اصلی
 const allProjects = await getCollection('projects');
 const featuredProjects = allProjects.slice(0, 4);
 ---
@@ -14,14 +14,14 @@ const featuredProjects = allProjects.slice(0, 4);
     <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
       <div class="max-w-2xl">
         <h2 class="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6">
-          پروژه‌های <span class="text-gradient-copper">واقعی</span>
+          {homeProjectsData.header.titleStart} <span class="text-gradient-copper">{homeProjectsData.header.titleGradient}</span>
         </h2>
         <p class="text-lg text-muted-foreground leading-relaxed">
-          ما به جای طرح‌های مفهومی، روی چالش‌های عملیاتی کار می‌کنیم. بررسی دستاوردهای ما در محیط‌های صنعتی و تحقیقاتی.
+          {homeProjectsData.header.description}
         </p>
       </div>
-      <a href="/projects" class="group inline-flex items-center gap-2 text-primary font-bold hover:text-primary-foreground hover:bg-primary px-6 py-3 rounded-xl border border-primary/30 transition-all duration-300">
-        مشاهده همه پروژه‌ها
+      <a href={homeProjectsData.cta.link} class="group inline-flex items-center gap-2 text-primary font-bold hover:text-primary-foreground hover:bg-primary px-6 py-3 rounded-xl border border-primary/30 transition-all duration-300">
+        {homeProjectsData.cta.text}
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="rotate-180 group-hover:-translate-x-1 transition-transform"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
       </a>
     </div>
