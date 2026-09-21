@@ -2,6 +2,7 @@
 // src/pages/projects/[slug].astro
 import { getCollection, render } from 'astro:content';
 import MainLayout from '../../layouts/main.astro';
+import { projectProfileData } from '../../data/projects';
 
 export async function getStaticPaths() {
   const projectEntries = await getCollection('projects');
@@ -25,7 +26,6 @@ const formattedDate = entry.data.publishDate
 >
   <article class="relative bg-background min-h-screen pb-24">
 
-    {/* هدر کیس‌استادی */}
     <header class="relative pt-32 pb-16 overflow-hidden border-b border-border/40">
       <div class="absolute inset-0 bg-grid-pattern opacity-20"></div>
       <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[400px] bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
@@ -48,12 +48,11 @@ const formattedDate = entry.data.publishDate
 
     <div class="container mx-auto px-4 md:px-8 max-w-4xl relative z-10 -mt-10">
 
-      {/* باکس اطلاعات کلیدی (Bento Style) */}
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-16">
         <div class="glass-panel p-6 md:p-8 rounded-3xl border-border/40">
           <h3 class="text-sm font-bold uppercase tracking-wider text-destructive mb-3 flex items-center gap-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-            چالش اصلی
+            {projectProfileData.labels.problem}
           </h3>
           <p class="text-foreground/80 leading-relaxed">{entry.data.problem}</p>
         </div>
@@ -61,7 +60,7 @@ const formattedDate = entry.data.publishDate
         <div class="glass-panel p-6 md:p-8 rounded-3xl border-border/40">
           <h3 class="text-sm font-bold uppercase tracking-wider text-primary mb-3 flex items-center gap-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-            راه‌حل مهندسی
+            {projectProfileData.labels.solution}
           </h3>
           <p class="text-foreground/80 leading-relaxed">{entry.data.solution}</p>
         </div>
@@ -69,22 +68,20 @@ const formattedDate = entry.data.publishDate
         <div class="glass-panel p-6 md:p-8 rounded-3xl border-border/40 md:col-span-2 bg-primary/5 dark:bg-primary/10">
           <h3 class="text-sm font-bold uppercase tracking-wider text-success mb-3 flex items-center gap-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-            دستاورد و نتیجه نهایی
+            {projectProfileData.labels.result}
           </h3>
           <p class="text-foreground font-medium leading-relaxed text-lg">{entry.data.result}</p>
         </div>
       </div>
 
-      {/* محتوای متنی مارک‌داون */}
       <div class="prose prose-lg prose-zinc dark:prose-invert prose-headings:font-heading prose-headings:font-bold prose-a:text-primary max-w-none text-muted-foreground leading-loose">
         <Content />
       </div>
 
-      {/* دکمه بازگشت */}
       <div class="mt-20 pt-10 border-t border-border/40 flex justify-center">
         <a href="/projects" class="inline-flex h-12 items-center justify-center rounded-xl bg-secondary/50 backdrop-blur px-8 text-sm font-bold text-foreground border border-border/50 transition-all hover:bg-secondary hover:-translate-y-1">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
-          بازگشت به لیست پروژه‌ها
+          {projectProfileData.labels.backToList}
         </a>
       </div>
 
