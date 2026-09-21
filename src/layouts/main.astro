@@ -1,38 +1,61 @@
 ---
-import '@fontsource/vazirmatn/400.css';
-import '@fontsource/vazirmatn/700.css';
-import '@fontsource/vazirmatn/900.css';
+// src/layouts/main.astro
 import '../styles/globals.css';
-
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
 
 interface Props {
-	title: string;
-    description?: string;
+  title: string;
+  description?: string;
 }
 
-const { title, description = "سیستم‌های هوشمند برای مشکلات واقعی" } = Astro.props;
+const {
+  title,
+  description = "ویهان | تیم مهندسی عمیق، هوش مصنوعی، امنیت شبکه و سیستم‌های توکار"
+} = Astro.props;
 ---
 
-<!doctype html>
-<html lang="fa" dir="rtl">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content={description} />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title} | ویهان</title>
-	</head>
-	<body class="min-h-screen flex flex-col selection:bg-brand-copper selection:text-white">
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-		<Header />
+    {/* اسکریپت مدیریت تم برای جلوگیری از پرش رنگ (Flash of Incorrect Theme) */}
+    <script is:inline>
+      const theme = (() => {
+        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+          return localStorage.getItem('theme');
+        }
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'dark';
+        }
+        return 'light';
+      })();
 
-        <main class="flex-1 flex flex-col">
-            <slot />
-        </main>
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+      window.localStorage.setItem('theme', theme);
+    </script>
+  </head>
+  <body class="bg-background text-foreground min-h-screen flex flex-col font-sans antialiased selection:bg-primary/20">
 
-		<Footer />
-	</body>
+    {/* هدر سایت */}
+    <Header />
+
+    {/* محتوای اصلی صفحات */}
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    {/* فوتر سایت */}
+    <Footer />
+
+  </body>
 </html>
