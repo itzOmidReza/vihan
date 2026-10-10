@@ -14,12 +14,14 @@
     "@vueuse/core": "^15.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "embla-carousel-vue": "^8.6.0",
     "nuxt": "^4.6.0",
     "reka-ui": "^2.11.0",
     "shadcn-nuxt": "2.8.2",
     "tailwind-merge": "^3.7.0",
     "vue": "^3.5.43",
-    "vue-router": "^5.3.1"
+    "vue-router": "^5.3.1",
+    "vue-sonner": "^2.0.9"
   },
   "devDependencies": {
     "@nuxt/image": "^2.1.0",
