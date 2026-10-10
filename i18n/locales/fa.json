@@ -1,3 +1,82 @@
 {
-  "welcome": "خوش آمدید"
+  "nav": {
+    "home": "صفحه اصلی",
+    "services": "سرویس‌ها",
+    "portfolio": "پروژه‌ها",
+    "about": "درباره ما",
+    "contact": "تماس با ما",
+    "consultation": "مشاوره رایگان"
+  },
+  "hero": {
+    "badge": "نسل جدید راهکارهای هوشمند",
+    "title_start": "کسب‌وکارت را با",
+    "title_highlight": "قدرت تکنولوژی",
+    "title_end": "رشد بده",
+    "description": "ما در شرکت ویهان داده گستر زاگرس با بهره‌گیری از هوش مصنوعی و معماری مدرن وب، مسیر دیجیتالی شدن کسب‌وکار شما را هموار می‌کنیم.",
+    "cta_primary": "درخواست مشاوره",
+    "cta_secondary": "مشاهده پروژه‌ها"
+  },
+  "services_section": {
+    "badge": "خدمات ما",
+    "title": "راهکارهایی برای دنیای فردا",
+    "description": "ارائه راهکارهای نرم‌افزاری مقیاس‌پذیر و هوش مصنوعی سفارشی برای تحول کسب‌وکار شما.",
+    "features_title": "ویژگی‌های کلیدی:"
+  },
+  "process_section": {
+    "badge": "چگونه کار می‌کنیم",
+    "title": "فرآیند همکاری ما"
+  },
+  "portfolio_section": {
+    "badge": "نمونه‌کارها",
+    "title": "آخرین پروژه‌های ما",
+    "description": "مجموعه‌ای از پروژه‌های شاخص ما در حوزه‌های هوش مصنوعی، توسعه وب و اپلیکیشن.",
+    "search_placeholder": "جستجو در پروژه‌ها...",
+    "categories": {
+      "all": "همه",
+      "ai": "هوش مصنوعی",
+      "web": "وب",
+      "mobile": "اپلیکیشن",
+      "dashboard": "داشبورد"
+    },
+    "view_project": "مشاهده پروژه"
+  },
+  "team_section": {
+    "badge": "تیم ما",
+    "title": "تیم متخصص ما",
+    "download_cv": "دریافت رزومه"
+  },
+  "contact_section": {
+    "badge": "ارتباط با ما",
+    "title_start": "بیا درباره",
+    "title_highlight": "ایده‌ات",
+    "title_end": "گپ بزنیم",
+    "subtitle": "تیم ما آماده است تا پیچیده‌ترین چالش‌های فنی شما را به راهکارهای هوشمند تبدیل کند.",
+    "form": {
+      "name_label": "نام کامل",
+      "name_placeholder": "نام شما",
+      "phone_label": "شماره موبایل",
+      "phone_placeholder": "۰۹۱۲...",
+      "subject_label": "موضوع پروژه",
+      "subject_placeholder": "در چه حوزه‌ای نیاز به همکاری دارید؟",
+      "message_label": "توضیحات تکمیلی",
+      "message_placeholder": "خلاصه‌ای از ایده خود را بنویسید...",
+      "submit_button": "شروع گفتگو با مشاوران"
+    },
+    "info": {
+      "email_title": "ایمیل ما",
+      "phone_title": "شماره تماس",
+      "hours_title": "ساعات کاری",
+      "address_title": "دفتر مرکزی"
+    }
+  },
+  "footer": {
+    "newsletter_title": "عضویت در خبرنامه",
+    "newsletter_subtitle": "آخرین اخبار دنیای AI و تکنولوژی را در ایمیل خود دریافت کنید.",
+    "newsletter_placeholder": "ایمیل شما...",
+    "quick_links": "دسترسی سریع",
+    "our_services": "خدمات ما",
+    "copyright": "تمامی حقوق این وب‌سایت متعلق به شرکت ویهان داده گستر زاگرس است © 2026",
+    "terms": "قوانین و مقررات",
+    "privacy": "حریم خصوصی"
+  }
 }

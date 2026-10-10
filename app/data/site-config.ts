@@ -15,15 +15,22 @@ export const siteConfig = {
   contact: {
     phone: '۰۲۱-۱۲۳۴۵۶۷۸',
     rawPhone: '+982112345678',
-    email: 'info@vihan.tech', // یا آدرس ایمیل دامنه شرکت
+    mobile: '۰۹۱۸۵۶۲۱۵۶۷',
+    rawMobile: '+989185621567',
+    email: 'info@vihan.tech',
     address: {
-      fa: 'تهران، خیابان آزادی، ناحیه نوآوری شریف، برج فناوری، طبقه هفتم، واحد ۷۰۴',
-      en: 'Unit 704, 7th Floor, Tech Tower, Sharif Innovation District, Azadi St, Tehran',
+      fa: 'تهران، خیابان آزادی، ناحیه نوآوری شریف، برج فناوری',
+      en: 'Tech Tower, Sharif Innovation District, Azadi St, Tehran',
     },
     workingHours: {
       fa: 'شنبه تا چهارشنبه ۹ تا ۱۸',
       en: 'Sat - Wed: 9:00 - 18:00',
     },
+  },
+  stats: {
+    specialists: '۴+', // تعداد واقعی اعضای تیم
+    projects: '۵+',    // تعداد پروژه‌های موفق توسعه‌یافته
+    technologies: '۱۰+', // پشته‌های فنی مدرن
   },
   socials: {
     github: 'https://github.com/vihan-tech',

@@ -1,3 +1,82 @@
 {
-  "welcome": "Welcome"
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "about": "About Us",
+    "contact": "Contact Us",
+    "consultation": "Free Consultation"
+  },
+  "hero": {
+    "badge": "Next-Gen Intelligent Solutions",
+    "title_start": "Grow Your Business with",
+    "title_highlight": "The Power of Tech",
+    "title_end": "",
+    "description": "At Vihan Dade Gostar Zagros, we leverage cutting-edge AI and modern software architectures to drive digital transformation.",
+    "cta_primary": "Request Consultation",
+    "cta_secondary": "View Projects"
+  },
+  "services_section": {
+    "badge": "Our Services",
+    "title": "Solutions for Tomorrow's World",
+    "description": "Delivering scalable software and tailored AI solutions to transform your business.",
+    "features_title": "Key Features:"
+  },
+  "process_section": {
+    "badge": "How We Work",
+    "title": "Our Working Process"
+  },
+  "portfolio_section": {
+    "badge": "Portfolio",
+    "title": "Our Recent Projects",
+    "description": "A curated collection of our benchmark projects across AI, web engineering, and mobile apps.",
+    "search_placeholder": "Search projects...",
+    "categories": {
+      "all": "All",
+      "ai": "AI & ML",
+      "web": "Web",
+      "mobile": "Mobile",
+      "dashboard": "Dashboard"
+    },
+    "view_project": "View Project"
+  },
+  "team_section": {
+    "badge": "Our Team",
+    "title": "Meet Our Experts",
+    "download_cv": "Download CV"
+  },
+  "contact_section": {
+    "badge": "Get in Touch",
+    "title_start": "Let's Talk About",
+    "title_highlight": "Your Idea",
+    "title_end": "",
+    "subtitle": "Our team is ready to turn your most complex technical challenges into intelligent solutions.",
+    "form": {
+      "name_label": "Full Name",
+      "name_placeholder": "Your Name",
+      "phone_label": "Phone Number",
+      "phone_placeholder": "+98...",
+      "subject_label": "Project Subject",
+      "subject_placeholder": "What area do you need collaboration in?",
+      "message_label": "Additional Details",
+      "message_placeholder": "Write a summary of your idea...",
+      "submit_button": "Start Consultation"
+    },
+    "info": {
+      "email_title": "Our Email",
+      "phone_title": "Phone Number",
+      "hours_title": "Working Hours",
+      "address_title": "Headquarters"
+    }
+  },
+  "footer": {
+    "newsletter_title": "Subscribe to Newsletter",
+    "newsletter_subtitle": "Receive the latest AI and tech insights directly in your inbox.",
+    "newsletter_placeholder": "Your email...",
+    "quick_links": "Quick Links",
+    "our_services": "Our Services",
+    "copyright": "All rights reserved for Vihan Dade Gostar Zagros Co. © 2026",
+    "terms": "Terms & Conditions",
+    "privacy": "Privacy Policy"
+  }
 }
