@@ -94,8 +94,8 @@ const handleNext = () => {
         class="py-8 overflow-visible!"
       >
         <SwiperSlide
-          v-for="project in projects"
-          :key="project.id"
+          v-for="project in (projects ?? [])"
+          :key="project?.id"
           class="h-auto!"
         >
           <div
@@ -104,8 +104,8 @@ const handleNext = () => {
             <!-- تصویر پروژه با اورلی و تگ‌ها -->
             <div class="relative aspect-16/10 overflow-hidden">
               <img
-                :src="project.image"
-                :alt="l(project.title)"
+                :src="project?.image"
+                :alt="project?.title ? l(project.title) : ''"
                 class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                 loading="lazy"
               />
@@ -114,7 +114,7 @@ const handleNext = () => {
               <div
                 class="absolute inset-0 bg-primary/20 backdrop-blur-xs opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center"
               >
-                <a :href="project.link || '#'" target="_blank" rel="noopener noreferrer">
+                <a :href="project?.link || '#'" target="_blank" rel="noopener noreferrer">
                   <button
                     type="button"
                     class="h-11 px-7 rounded-full bg-primary text-primary-foreground font-bold text-sm flex items-center gap-2 shadow-2xl hover:scale-105 active:scale-95 transition-transform cursor-pointer"
@@ -128,7 +128,7 @@ const handleNext = () => {
               <!-- تگ‌های تکنولوژی در بالای تصویر -->
               <div class="absolute top-5 right-5 flex flex-wrap gap-2 max-w-[80%]">
                 <span
-                  v-for="tag in project.tags"
+                  v-for="tag in (project?.tags ?? [])"
                   :key="tag"
                   class="bg-background/85 backdrop-blur-md border border-border/70 text-foreground text-[11px] font-bold py-1 px-3 rounded-full shadow-xs"
                 >
@@ -142,7 +142,7 @@ const handleNext = () => {
               <div>
                 <div class="flex justify-between items-start mb-4 gap-4">
                   <h3 class="text-xl md:text-2xl font-black text-foreground group-hover:text-primary transition-colors">
-                    {{ l(project.title) }}
+                    {{ project?.title ? l(project.title) : '' }}
                   </h3>
                   <div class="p-3 bg-secondary rounded-2xl group-hover:bg-primary/10 group-hover:rotate-12 transition-all shrink-0">
                     <Layers class="text-primary h-5 w-5" />

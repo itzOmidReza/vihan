@@ -156,18 +156,18 @@ const getColorClasses = (color: string) => {
         class="pb-10 pt-2 overflow-visible!"
       >
         <SwiperSlide
-          v-for="service in services"
-          :key="service.id"
+          v-for="service in (services ?? [])"
+          :key="service?.id"
           class="h-auto!"
         >
           <div
             class="h-full group relative p-8 md:p-10 rounded-[2.5rem] bg-card/50 backdrop-blur-md border border-border/60 hover:border-primary/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl overflow-hidden flex flex-col justify-between"
-            :class="getColorClasses(service.color).glow"
+            :class="getColorClasses(service?.color || 'blue').glow"
           >
             <!-- هاله محو داخلی کارت هنگام هاور -->
             <div
               class="absolute -top-12 -left-12 w-40 h-40 opacity-0 group-hover:opacity-30 blur-[60px] rounded-full transition-opacity duration-700 pointer-events-none"
-              :class="getColorClasses(service.color).bg"
+              :class="getColorClasses(service?.color || 'blue').bg"
             ></div>
 
             <div class="relative z-10 flex flex-col h-full">
@@ -175,21 +175,21 @@ const getColorClasses = (color: string) => {
               <div class="flex items-start justify-between mb-8">
                 <div
                   class="w-16 h-16 rounded-3xl flex items-center justify-center text-white shadow-xl transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3"
-                  :class="getColorClasses(service.color).bg"
+                  :class="getColorClasses(service?.color || 'blue').bg"
                 >
-                  <component :is="iconMap[service.icon] || Cpu" class="h-8 w-8" />
+                  <component :is="iconMap[service?.icon || 'Cpu'] || Cpu" class="h-8 w-8" />
                 </div>
                 <span class="px-3.5 py-1 rounded-full bg-secondary text-secondary-foreground text-xs font-black tracking-widest uppercase">
-                  Service {{ service.serviceNumber }}
+                  Service {{ service?.serviceNumber || '01' }}
                 </span>
               </div>
 
               <!-- عنوان و متن سرویس -->
               <h3 class="text-2xl font-black mb-4 group-hover:text-primary transition-colors duration-300">
-                {{ l(service.title) }}
+                {{ service?.title ? l(service.title) : '' }}
               </h3>
               <p class="text-muted-foreground text-sm leading-relaxed mb-8 grow">
-                {{ l(service.description) }}
+                {{ service?.description ? l(service.description) : '' }}
               </p>
 
               <!-- قابلیت‌های سرویس -->
@@ -199,12 +199,12 @@ const getColorClasses = (color: string) => {
                 </p>
                 <div class="flex flex-wrap gap-2">
                   <span
-                    v-for="(feat, idx) in service.features"
+                    v-for="(feat, idx) in (service?.features ?? [])"
                     :key="idx"
                     class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-background/70 border border-border/60 text-xs font-medium text-foreground group-hover:border-primary/30 transition-all"
                   >
                     <CircleCheck class="h-3.5 w-3.5 text-primary shrink-0" />
-                    <span>{{ l(feat) }}</span>
+                    <span>{{ feat ? l(feat) : '' }}</span>
                   </span>
                 </div>
               </div>

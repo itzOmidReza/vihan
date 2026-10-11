@@ -107,8 +107,8 @@ const handleNext = () => {
         class="pb-10 pt-2 overflow-visible!"
       >
         <SwiperSlide
-          v-for="item in testimonials"
-          :key="item.id"
+          v-for="item in (testimonials ?? [])"
+          :key="item?.id"
           class="h-auto!"
         >
           <div
@@ -124,7 +124,7 @@ const handleNext = () => {
 
               <div class="flex gap-1">
                 <Star
-                  v-for="i in item.rating"
+                  v-for="i in (item?.rating || 5)"
                   :key="i"
                   class="h-4 w-4 fill-amber-400 text-amber-400"
                 />
@@ -133,23 +133,23 @@ const handleNext = () => {
 
             <!-- متن بازخورد مشتری -->
             <p class="text-foreground/85 leading-relaxed text-base mb-8 grow italic font-medium">
-              «{{ l(item.comment) }}»
+              «{{ item?.comment ? l(item.comment) : '' }}»
             </p>
 
             <!-- مشخصات و تصویر کاربر -->
             <div class="flex items-center gap-4 border-t border-border/50 pt-6 mt-auto">
               <img
-                :src="item.avatar"
-                :alt="l(item.name)"
+                :src="item?.avatar"
+                :alt="item?.name ? l(item.name) : ''"
                 class="w-13 h-13 rounded-full object-cover border-2 border-primary/20 ring-4 ring-background"
                 loading="lazy"
               />
               <div class="flex flex-col text-right">
                 <h4 class="font-black text-base text-foreground group-hover:text-primary transition-colors">
-                  {{ l(item.name) }}
+                  {{ item?.name ? l(item.name) : '' }}
                 </h4>
                 <p class="text-muted-foreground text-xs font-semibold">
-                  {{ l(item.company) }}
+                  {{ item?.company ? l(item.company) : '' }}
                 </p>
               </div>
             </div>

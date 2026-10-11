@@ -11,6 +11,8 @@ export interface TeamMember {
   bio: LocalizedString
   avatar: string
   resume?: string
+  resumeUrl?: string
+  skills?: string[]
   socials: {
     website?: string
     linkedin?: string

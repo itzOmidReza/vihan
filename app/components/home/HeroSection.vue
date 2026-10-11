@@ -10,7 +10,7 @@ const localePath = useLocalePath()
   <section class="relative min-h-[calc(100vh-6rem)] w-full flex items-center justify-center py-16 md:py-24 overflow-hidden bg-background">
     <!-- پس‌زمینه شبکه‌ای (Grid Pattern) و افکت‌های نوری -->
     <div
-      class="absolute inset-0 opacity-[0.12] dark:opacity-20 [background-image:radial-gradient(var(--border)_1px,transparent_1px)] [background-size:36px_36px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)]"
+      class="absolute inset-0 opacity-[0.12] dark:opacity-20 [background-image:radial-gradient(var(--border)_1px,transparent_1px)] [background-size:36px_36px] [mask-image:radial-gradient(ellipse_at_center,#000_70%,transparent_100%)]"
     ></div>
     <div class="absolute -top-32 -right-32 w-96 md:w-[32rem] h-96 md:h-[32rem] bg-primary/20 rounded-full blur-[120px] pointer-events-none"></div>
     <div class="absolute -bottom-32 -left-32 w-80 md:w-[28rem] h-80 md:h-[28rem] bg-blue-600/15 rounded-full blur-[120px] pointer-events-none"></div>
