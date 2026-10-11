@@ -114,3 +114,43 @@ export const processSteps: ProcessStep[] = [
     },
   },
 ]
+
+export const workflowSteps = [
+  {
+    step: '۰۱',
+    title: { fa: 'تحلیل عمیق و نیازسنجی', en: 'Discovery & Analysis' },
+    desc: {
+      fa: 'بررسی اهداف تجاری، شناخت مخاطب هدف و استخراج دقیق مشخصات فنی و دامنه‌کاری پروژه.',
+      en: 'Evaluating business goals, target audience analysis, and scoping technical requirements.',
+    },
+    icon: 'Search',
+  },
+  {
+    step: '۰۲',
+    title: { fa: 'معماری و طراحی محصول', en: 'Architecture & UI/UX' },
+    desc: {
+      fa: 'طراحی معماری میکروسرویس/ابری و پروتوتایپ‌های تعاملی با رعایت آخرین استانداردهای تجربه کاربری.',
+      en: 'Designing scalable system architecture and UX/UI wireframes with modern principles.',
+    },
+    icon: 'PenTool',
+  },
+  {
+    step: '۰۳',
+    title: { fa: 'توسعه چابک و آزمون کیفی', en: 'Agile Dev & QA' },
+    desc: {
+      fa: 'کدنویسی تمیز با فریم‌ورک‌های مدرن، یکپارچه‌سازی مدل‌های AI و تست‌های خودکار امنیت و کارایی.',
+      en: 'Clean development with modern stacks, AI integration, and rigorous testing.',
+    },
+    icon: 'Code2',
+  },
+  {
+    step: '۰۴',
+    title: { fa: 'استقرار و پشتیبانی مقیاس‌پذیر', en: 'Deploy & Scaling' },
+    desc: {
+      fa: 'تحویل بر بستر زیرساخت‌های پایدار ابری، مانیتورینگ عملکرد و پشتیبانی فنی بدون توقف.',
+      en: 'Cloud deployment, performance observability, and continuous technical support.',
+    },
+    icon: 'Rocket',
+  },
+]
+
