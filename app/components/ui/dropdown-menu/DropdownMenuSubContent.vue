@@ -1,15 +1,35 @@
 <script setup lang="ts">
-import type { DropdownMenuSubContentEmits, DropdownMenuSubContentProps } from "reka-ui"
 import type { HTMLAttributes } from "vue"
 import { reactiveOmit } from "@vueuse/core"
 import {
   DropdownMenuSubContent,
   useForwardPropsEmits,
 } from "reka-ui"
-import { cn } from "@/lib/utils"
+import { cn } from "~/lib/utils"
 
-const props = defineProps<DropdownMenuSubContentProps & { class?: HTMLAttributes["class"] }>()
-const emits = defineEmits<DropdownMenuSubContentEmits>()
+interface Props {
+  sideOffset?: number
+  alignOffset?: number
+  avoidCollisions?: boolean
+  collisionBoundary?: any
+  collisionPadding?: any
+  arrowPadding?: number
+  sticky?: "partial" | "always"
+  hideWhenDetached?: boolean
+  asChild?: boolean
+  as?: any
+  class?: HTMLAttributes["class"]
+}
+
+const props = defineProps<Props>()
+const emits = defineEmits<{
+  (e: "escapeKeyDown", event: KeyboardEvent): void
+  (e: "pointerDownOutside", event: any): void
+  (e: "focusOutside", event: any): void
+  (e: "interactOutside", event: any): void
+  (e: "openAutoFocus", event: Event): void
+  (e: "closeAutoFocus", event: Event): void
+}>()
 
 const delegatedProps = reactiveOmit(props, "class")
 

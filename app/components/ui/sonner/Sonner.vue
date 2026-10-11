@@ -1,10 +1,30 @@
 <script lang="ts" setup>
-import type { ToasterProps } from "vue-sonner"
-import { CircleCheckIcon, InfoIcon, Loader2Icon, OctagonXIcon, TriangleAlertIcon, XIcon } from "@lucide/vue"
+import type { HTMLAttributes } from "vue"
+import { reactiveOmit } from "@vueuse/core"
 import { Toaster as Sonner } from "vue-sonner"
-import { cn } from "@/lib/utils"
+import { cn } from "~/lib/utils"
 
-const props = defineProps<ToasterProps>()
+interface Props {
+  invert?: boolean
+  theme?: "light" | "dark" | "system"
+  position?: "top-left" | "top-right" | "bottom-left" | "bottom-right" | "top-center" | "bottom-center"
+  hotkey?: string[]
+  richColors?: boolean
+  expand?: boolean
+  duration?: number
+  gap?: number
+  visibleToasts?: number
+  closeButton?: boolean
+  toastOptions?: Record<string, any>
+  class?: HTMLAttributes["class"]
+  style?: any
+  offset?: string | number
+  dir?: "rtl" | "ltr" | "auto"
+  [key: string]: any
+}
+
+const props = defineProps<Props>()
+const delegatedProps = reactiveOmit(props, "class")
 </script>
 
 <template>
@@ -16,7 +36,7 @@ const props = defineProps<ToasterProps>()
       '--normal-border': 'var(--border)',
       '--border-radius': 'var(--radius)',
     }"
-    v-bind="props"
+    v-bind="delegatedProps"
   >
     <template #success-icon>
       <CircleCheckIcon class="size-4" />

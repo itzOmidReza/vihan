@@ -1,9 +1,13 @@
 <script setup lang="ts">
-import type { WithClassAsProps } from "./interface"
-import { cn } from "@/lib/utils"
+import type { HTMLAttributes } from "vue"
+import { cn } from "~/lib/utils"
 import { useCarousel } from "./useCarousel"
 
-const props = defineProps<WithClassAsProps>()
+interface Props {
+  class?: HTMLAttributes["class"]
+}
+
+const props = defineProps<Props>()
 
 const { orientation } = useCarousel()
 </script>

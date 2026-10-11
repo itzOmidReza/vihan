@@ -1,8 +1,16 @@
 <script setup lang="ts">
-import type { TooltipProviderProps } from "reka-ui"
 import { TooltipProvider } from "reka-ui"
 
-const props = withDefaults(defineProps<TooltipProviderProps>(), {
+interface Props {
+  delayDuration?: number
+  skipDelayDuration?: number
+  disableHoverableContent?: boolean
+  disableClosingTrigger?: boolean
+  disabled?: boolean
+  ignoreNonKeyboardFocus?: boolean
+}
+
+const props = withDefaults(defineProps<Props>(), {
   delayDuration: 0,
 })
 </script>

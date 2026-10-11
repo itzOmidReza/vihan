@@ -1,16 +1,17 @@
 <script setup lang="ts">
-import type { WithClassAsProps } from "./interface"
-import type { ButtonVariants } from '@/components/ui/button'
+import type { HTMLAttributes } from "vue"
 import { ArrowLeft } from "@lucide/vue"
-import { cn } from "@/lib/utils"
-import { Button } from '@/components/ui/button'
+import { Button } from "~/components/ui/button"
+import { cn } from "~/lib/utils"
 import { useCarousel } from "./useCarousel"
 
-const props = withDefaults(defineProps<{
-  variant?: ButtonVariants["variant"]
-  size?: ButtonVariants["size"]
+interface Props {
+  variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link" | null
+  size?: "default" | "xs" | "sm" | "lg" | "icon" | "icon-xs" | "icon-sm" | "icon-lg" | null
+  class?: HTMLAttributes["class"]
 }
-& WithClassAsProps>(), {
+
+const props = withDefaults(defineProps<Props>(), {
   variant: "outline",
   size: "icon",
 })

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { DropdownMenuCheckboxItemEmits, DropdownMenuCheckboxItemProps } from "reka-ui"
 import type { HTMLAttributes } from "vue"
 import { Check } from "@lucide/vue"
 import { reactiveOmit } from "@vueuse/core"
@@ -8,10 +7,22 @@ import {
   DropdownMenuItemIndicator,
   useForwardPropsEmits,
 } from "reka-ui"
-import { cn } from "@/lib/utils"
+import { cn } from "~/lib/utils"
 
-const props = defineProps<DropdownMenuCheckboxItemProps & { class?: HTMLAttributes["class"] }>()
-const emits = defineEmits<DropdownMenuCheckboxItemEmits>()
+interface Props {
+  checked?: boolean | "indeterminate"
+  disabled?: boolean
+  textValue?: string
+  asChild?: boolean
+  as?: any
+  class?: HTMLAttributes["class"]
+}
+
+const props = defineProps<Props>()
+const emits = defineEmits<{
+  (e: "update:checked", payload: boolean): void
+  (e: "select", event: Event): void
+}>()
 
 const delegatedProps = reactiveOmit(props, "class")
 

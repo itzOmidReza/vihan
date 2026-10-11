@@ -1,13 +1,23 @@
 <script setup lang="ts">
-import type { CarouselEmits, CarouselProps, WithClassAsProps } from "./interface"
-import { cn } from "@/lib/utils"
+import type { HTMLAttributes } from "vue"
+import type { UnwrapRefCarouselApi } from "./interface"
+import { cn } from "~/lib/utils"
 import { useProvideCarousel } from "./useCarousel"
 
-const props = withDefaults(defineProps<CarouselProps & WithClassAsProps>(), {
+interface Props {
+  opts?: Record<string, any>
+  plugins?: any
+  orientation?: "horizontal" | "vertical"
+  class?: HTMLAttributes["class"]
+}
+
+const props = withDefaults(defineProps<Props>(), {
   orientation: "horizontal",
 })
 
-const emits = defineEmits<CarouselEmits>()
+const emits = defineEmits<{
+  (e: "init-api", payload: UnwrapRefCarouselApi): void
+}>()
 
 const { canScrollNext, canScrollPrev, carouselApi, carouselRef, orientation, scrollNext, scrollPrev } = useProvideCarousel(props, emits)
 

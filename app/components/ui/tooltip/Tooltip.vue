@@ -1,9 +1,20 @@
 <script setup lang="ts">
-import type { TooltipRootEmits, TooltipRootProps } from "reka-ui"
 import { TooltipRoot, useForwardPropsEmits } from "reka-ui"
 
-const props = defineProps<TooltipRootProps>()
-const emits = defineEmits<TooltipRootEmits>()
+interface Props {
+  defaultOpen?: boolean
+  open?: boolean
+  delayDuration?: number
+  disableHoverableContent?: boolean
+  disableClosingTrigger?: boolean
+  disabled?: boolean
+  ignoreNonKeyboardFocus?: boolean
+}
+
+const props = defineProps<Props>()
+const emits = defineEmits<{
+  (e: "update:open", payload: boolean): void
+}>()
 
 const forwarded = useForwardPropsEmits(props, emits)
 </script>

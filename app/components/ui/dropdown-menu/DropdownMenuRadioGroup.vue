@@ -1,12 +1,19 @@
 <script setup lang="ts">
-import type { DropdownMenuRadioGroupEmits, DropdownMenuRadioGroupProps } from "reka-ui"
 import {
   DropdownMenuRadioGroup,
   useForwardPropsEmits,
 } from "reka-ui"
 
-const props = defineProps<DropdownMenuRadioGroupProps>()
-const emits = defineEmits<DropdownMenuRadioGroupEmits>()
+interface Props {
+  modelValue?: any
+  asChild?: boolean
+  as?: any
+}
+
+const props = defineProps<Props>()
+const emits = defineEmits<{
+  (e: "update:modelValue", payload: any): void
+}>()
 
 const forwarded = useForwardPropsEmits(props, emits)
 </script>
