@@ -17,38 +17,18 @@ import { Avatar, AvatarImage, AvatarFallback } from '~/components/ui/avatar'
 import { Badge } from '~/components/ui/badge'
 
 import { teamMembers } from '~/data/team'
+import { coreValues } from '~/data/about'
 import { siteConfig } from '~/data/site-config'
 import { useLocalized } from '~/composables/useLocalized'
 
 const { l } = useLocalized()
 const localePath = useLocalePath()
 
-const coreValues = [
-  {
-    title: { fa: 'مهندسی پیشرو و مدرن', en: 'Modern Engineering' },
-    desc: {
-      fa: 'پرهیز از روش‌های سنتی؛ اتکا به جدیدترین متدهای یادگیری ماشین، معماری ابری و فریم‌ورک‌های فوق سریع.',
-      en: 'Embracing machine learning breakthroughs, cloud architecture, and modern ultra-fast frameworks.'
-    },
-    icon: Cpu,
-  },
-  {
-    title: { fa: 'تعهد به کیفیت و شفافیت', en: 'Quality & Transparency' },
-    desc: {
-      fa: 'تحویل منظم گزارش‌های اسپرینت، کدنویسی استاندارد و مستندسازی کامل بدون پیچیدگی‌های مبهم.',
-      en: 'Sprint accountability, pristine code standards, and transparent documentation without technical ambiguity.'
-    },
-    icon: ShieldCheck,
-  },
-  {
-    title: { fa: 'تمرکز بر مقیاس‌پذیری تجاری', en: 'Scalable Growth' },
-    desc: {
-      fa: 'محصولاتی که می‌سازیم همراه با رشد کاربران و تراکنش‌های بیزینس شما پایدار می‌مانند و توسعه می‌یابند.',
-      en: 'Architected to scale seamlessly as user traffic and business transactions multiply.'
-    },
-    icon: Zap,
-  },
-]
+const iconMap: Record<string, any> = {
+  Cpu,
+  ShieldCheck,
+  Zap,
+}
 </script>
 
 <template>
@@ -142,7 +122,7 @@ const coreValues = [
           class="p-8 rounded-[2.5rem] bg-card/50 backdrop-blur-md border border-border/60 hover:border-primary/40 hover:-translate-y-1.5 transition-all duration-300 space-y-4"
         >
           <div class="p-4 rounded-2xl bg-primary/10 text-primary w-fit">
-            <component :is="val.icon" class="h-7 w-7" />
+            <component :is="iconMap[val.icon] || Cpu" class="h-7 w-7" />
           </div>
           <h3 class="text-xl font-black text-foreground">
             {{ l(val.title) }}

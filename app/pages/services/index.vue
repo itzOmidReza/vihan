@@ -16,7 +16,7 @@ import {
   ShieldCheck,
   PhoneCall
 } from '@lucide/vue'
-import { services } from '~/data/services'
+import { services, workflowSteps } from '~/data/services'
 import { siteConfig } from '~/data/site-config'
 import { useLocalized } from '~/composables/useLocalized'
 
@@ -29,47 +29,12 @@ const iconMap: Record<string, any> = {
   Smartphone,
   ChartColumn: BarChart3,
   BarChart3,
+  Search,
+  PenTool,
+  Code2,
+  Rocket,
 }
 
-// مراحل اجرای کار در ویهان
-const workflowSteps = [
-  {
-    step: '۰۱',
-    title: { fa: 'تحلیل عمیق و نیازسنجی', en: 'Discovery & Analysis' },
-    desc: {
-      fa: 'بررسی اهداف تجاری، شناخت مخاطب هدف و استخراج دقیق مشخصات فنی و دامنه‌کاری پروژه.',
-      en: 'Evaluating business goals, target audience analysis, and scoping technical requirements.'
-    },
-    icon: Search,
-  },
-  {
-    step: '۰۲',
-    title: { fa: 'معماری و طراحی محصول', en: 'Architecture & UI/UX' },
-    desc: {
-      fa: 'طراحی معماری میکروسرویس/ابری و پروتوتایپ‌های تعاملی با رعایت آخرین استانداردهای تجربه کاربری.',
-      en: 'Designing scalable system architecture and UX/UI wireframes with modern principles.'
-    },
-    icon: PenTool,
-  },
-  {
-    step: '۰۳',
-    title: { fa: 'توسعه چابک و آزمون کیفی', en: 'Agile Dev & QA' },
-    desc: {
-      fa: 'کدنویسی تمیز با فریم‌ورک‌های مدرن، یکپارچه‌سازی مدل‌های AI و تست‌های خودکار امنیت و کارایی.',
-      en: 'Clean development with modern stacks, AI integration, and rigorous testing.'
-    },
-    icon: Code2,
-  },
-  {
-    step: '۰۴',
-    title: { fa: 'استقرار و پشتیبانی مقیاس‌پذیر', en: 'Deploy & Scaling' },
-    desc: {
-      fa: 'تحویل بر بستر زیرساخت‌های پایدار ابری، مانیتورینگ عملکرد و پشتیبانی فنی بدون توقف.',
-      en: 'Cloud deployment, performance observability, and continuous technical support.'
-    },
-    icon: Rocket,
-  },
-]
 
 const getColorClasses = (color: string) => {
   switch (color) {
@@ -228,7 +193,7 @@ const getColorClasses = (color: string) => {
             <div>
               <div class="flex items-center justify-between mb-6">
                 <div class="p-3.5 rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-white transition-all">
-                  <component :is="step?.icon" class="h-6 w-6" />
+                  <component :is="iconMap[step?.icon] || Search" class="h-6 w-6" />
                 </div>
                 <span class="text-2xl font-black text-muted-foreground/40 tabular-nums">
                   {{ step?.step }}
