@@ -251,6 +251,11 @@ $ npm run build
 * **Grid Alignment:** Verified `grid-cols-1 md:grid-cols-2 lg:grid-cols-3` in `about-us.vue` across mobile, tablet, and desktop viewports.
 * **RTL Ergonomics:** Persian typography (`vazirmatn`), right-aligned borders, and proper margin/padding flow verified.
 
+### 4.4 Automated Testing Suite (`npm run test`)
+* **Framework:** Vitest + `@vue/test-utils` + `happy-dom`.
+* **Results:** 7 test suites, 36/36 tests passing (100% pass rate in 1.25s).
+* **Detailed Report:** See [document/MODULARIZATION_AND_TESTS_REPORT.md](file:///home/omidreza/Development/Personal/vihan/document/MODULARIZATION_AND_TESTS_REPORT.md).
+
 ---
 
 ## 5. Architectural Recommendations for Future Development
@@ -263,4 +268,7 @@ $ npm run build
    Ensure arrays bound to `v-for` or sliced in templates utilize `(array ?? []).slice(...)` to safeguard against unhydrated SSR state.
 4. **Preserve `reactiveOmit` Pattern:**
    When wrapping headless UI components (Reka-UI / Radix-Vue), use `reactiveOmit(props, 'class')` to safely merge styling classes via `cn(...)` without contaminating forwarded attributes.
+5. **Decouple Business Logic into Composables:**
+   Extract stateful filtering and form validation logic into dedicated composables (`useProjectFilter`, `useContactForm`) to facilitate unit testing and lean page orchestrators.
+
 
